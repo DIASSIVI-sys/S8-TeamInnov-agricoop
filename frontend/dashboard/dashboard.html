@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriCoop Connect — Tableau de bord</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       NAVIGATION — TODO (Dev FS1)
+       Construire un menu de navigation vers les 8 pages du site.
+       Structure attendue : <nav> avec liens vers les autres modules.
+       Doit inclure un menu burger pour mobile.
+       ===================================================================== -->
+
+  <main>
+    <!-- =====================================================================
+         CARTES INDICATEURS — TODO (Dev FS1)
+         Construire 4 cartes affichant les indicateurs clés du tableau de bord.
+         Structure attendue : conteneur avec 4 éléments (stock, montant dû,
+         membres actifs, livraisons du mois).
+         Layout : Flexbox ou Grid, responsive (1 colonne mobile, 2-4 desktop).
+
+         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
+         ===================================================================== -->
+    <div id="dashboard-cartes">
+      <div id="carte-stock"></div>
+      <div id="carte-montant-du"></div>
+      <div id="carte-membres"></div>
+      <div id="carte-livraisons"></div>
+    </div>
+
+    <!-- =====================================================================
+         JOURS À FORTE ACTIVITÉ — TODO (Dev FS1)
+         Afficher le nombre de jours dépassant le seuil de 80 kg.
+
+         *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
+         ===================================================================== -->
+    <div id="jours-actifs"></div>
+
+    <!-- =====================================================================
+         GRAPHIQUE SEMAINE — TODO (Dev FS1)
+         Conteneur pour un graphique en barres (barres générées par main.js).
+         Le dev doit styliser les barres via CSS (.barre).
+
+         *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
+         ===================================================================== -->
+    <div id="graphique-semaine"></div>
+  </main>
+
+  <!-- NE PAS MODIFIER — scripts de connexion au backend -->
+  <script src="../functions.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

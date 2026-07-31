@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tests — functions.js — AgriCoop Connect</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; }
+    .ok { color: #16794b; }
+    .ko { color: #b3261e; }
+    li { margin: .3rem 0; }
+  </style>
+</head>
+<body>
+  <!-- Ouvrez ce fichier dans le navigateur. Tout doit être VERT.
+       Vous n'avez rien à modifier ici. -->
+  <h1>Tests de functions.js — AgriCoop Connect</h1>
+  <ul id="resultats"></ul>
+
+  <script src="functions.js"></script>
+  <script>
+    const ul = document.getElementById("resultats");
+    function verifier(nom, condition) {
+      const li = document.createElement("li");
+      li.textContent = (condition ? "✔ " : "✗ ") + nom;
+      li.className = condition ? "ok" : "ko";
+      ul.appendChild(li);
+    }
+    function memeContenu(a, b) { return JSON.stringify(a) === JSON.stringify(b); }
+
+    try {
+      // --- Dev FS1 ---
+      verifier("validerFormulaireLogin accepte des identifiants remplis",
+        validerFormulaireLogin({ nom_utilisateur: "smalonga", mot_de_passe: "Secretaire2026" }) === true);
+
+      verifier("validerFormulaireLogin rejette un mot de passe vide",
+        validerFormulaireLogin({ nom_utilisateur: "smalonga", mot_de_passe: "" }) === false);
+
+      verifier("validerFormulaireLogin rejette un nom d'utilisateur vide",
+        validerFormulaireLogin({ nom_utilisateur: "   ", mot_de_passe: "abc" }) === false);
+
+      verifier("compterJoursActifs compte les jours au-dessus du seuil",
+        compterJoursActifs({ "2026-07-08": 135, "2026-07-09": 60, "2026-07-10": 110 }, 100) === 2);
+
+      // --- Dev FS2 ---
+      verifier("filtrerMembresParStatut garde le bon statut",
+        memeContenu(
+          filtrerMembresParStatut(
+            [{ statut_cotisation: "En retard" }, { statut_cotisation: "À jour" }, { statut_cotisation: "En retard" }],
+            "En retard"
+          ),
+          [{ statut_cotisation: "En retard" }, { statut_cotisation: "En retard" }]
+        ));
+
+      verifier("rechercherMembreParNom trouve un nom (insensible à la casse)",
+        rechercherMembreParNom([{ nom: "Jean Mabiala" }, { nom: "Sandra Malonga" }], "jean").length === 1);
+
+      verifier("rechercherMembreParNom retourne tout si texte vide",
+        rechercherMembreParNom([{ nom: "Jean Mabiala" }, { nom: "Sandra Malonga" }], "").length === 2);
+
+      verifier("validerFormulaireNouveauMembre accepte un formulaire complet",
+        validerFormulaireNouveauMembre({ nom: "Koumba", prenom: "Marie", village: "Séo", contact: "064111222" }).valide === true);
+
+      verifier("validerFormulaireNouveauMembre signale les champs manquants",
+        validerFormulaireNouveauMembre({ nom: "Koumba", prenom: "", village: "Séo", contact: "" }).erreurs.length === 2);
+
+      // --- Dev FS3 ---
+      verifier("validerFormulaireLivraison accepte un formulaire correct",
+        validerFormulaireLivraison({ membre_id: 1, culture: "Manioc", quantite: "40" }) === true);
+
+      verifier("validerFormulaireLivraison rejette une quantité à 0",
+        validerFormulaireLivraison({ membre_id: 1, culture: "Manioc", quantite: "0" }) === false);
+
+      verifier("validerFormulaireLivraison rejette une culture vide",
+        validerFormulaireLivraison({ membre_id: 1, culture: "", quantite: "40" }) === false);
+
+      verifier("trierLivraisonsParDate trie du plus récent au plus ancien",
+        memeContenu(
+          trierLivraisonsParDate([{ date: "2026-07-10" }, { date: "2026-07-15" }, { date: "2026-07-08" }]),
+          [{ date: "2026-07-15" }, { date: "2026-07-10" }, { date: "2026-07-08" }]
+        ));
+
+      // --- Dev FS4 ---
+      verifier("validerFormulairePaiement accepte un formulaire correct",
+        validerFormulairePaiement({ membre_id: 1, montant: "5000", mode_paiement: "Espèces" }) === true);
+
+      verifier("validerFormulairePaiement rejette un montant à 0",
+        validerFormulairePaiement({ membre_id: 1, montant: "0", mode_paiement: "Espèces" }) === false);
+
+      verifier("validerFormulairePaiement rejette un membre_id vide",
+        validerFormulairePaiement({ membre_id: "", montant: "5000", mode_paiement: "Espèces" }) === false);
+
+      verifier("validerFormulairePaiement rejette un mode de paiement invalide",
+        validerFormulairePaiement({ membre_id: 1, montant: "5000", mode_paiement: "Chèque" }) === false);
+
+      verifier("calculerTotalPaiements additionne correctement",
+        calculerTotalPaiements([{ montant: 5000 }, { montant: 3000 }, { montant: 2000 }]) === 10000);
+
+      verifier("calculerTotalPaiements retourne 0 pour une liste vide",
+        calculerTotalPaiements([]) === 0);
+
+      // --- Dev FS5 ---
+      verifier("getBadgeStock -> Épuisé",
+        getBadgeStock(0) === "Épuisé");
+
+      verifier("getBadgeStock -> Stock faible",
+        getBadgeStock(30) === "Stock faible");
+
+      verifier("getBadgeStock -> Disponible",
+        getBadgeStock(80) === "Disponible");
+
+      verifier("formaterMontant ajoute FCFA",
+        formaterMontant(23000) === "23000 FCFA");
+
+      // --- Dev FS6 ---
+      verifier("trierClassementParVolume trie du plus gros producteur au plus petit",
+        memeContenu(
+          trierClassementParVolume([{ volume_total: 50 }, { volume_total: 130 }, { volume_total: 90 }]),
+          [{ volume_total: 130 }, { volume_total: 90 }, { volume_total: 50 }]
+        ));
+
+      verifier("formaterDate convertit AAAA-MM-JJ en JJ/MM/AAAA",
+        formaterDate("2026-07-12") === "12/07/2026");
+
+    } catch (e) {
+      verifier("Une fonction plante : " + e.message, false);
+    }
+  </script>
+</body>
+</html>

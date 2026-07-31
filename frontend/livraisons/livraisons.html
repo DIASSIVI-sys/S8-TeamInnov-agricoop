@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriCoop Connect — Livraisons</title>
+  <link rel="stylesheet" href="livraisons.css">
+</head>
+<body>
+
+  <!-- NAVIGATION — TODO (Dev FS3) -->
+
+  <main>
+    <!-- =====================================================================
+         FORMULAIRE D'ENREGISTREMENT — TODO (Dev FS3)
+         Construire le formulaire (membre, culture, quantité) et les zones
+         de messages. Le dev doit structurer et styliser le formulaire.
+
+         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
+         ===================================================================== -->
+    <form id="form-livraison">
+      <select id="f-membre"><option value="">-- Choisir un membre --</option></select>
+      <select id="f-culture">
+        <option value="">-- Choisir une culture --</option>
+        <option value="Manioc">Manioc</option>
+        <option value="Maïs">Maïs</option>
+        <option value="Arachide">Arachide</option>
+      </select>
+      <input type="number" id="f-quantite" min="1" placeholder="Quantité (kg)">
+      <button type="submit">Enregistrer</button>
+    </form>
+
+    <div id="message-erreur-livraison" hidden></div>
+    <div id="message-succes-livraison" hidden></div>
+
+    <!-- =====================================================================
+         TABLEAU DES LIVRAISONS — TODO (Dev FS3)
+         Construire un tableau HTML triable. Le contenu des <tr> est injecté
+         par main.js dans le <tbody>. Le dev structure le <table>, le <thead>,
+         et le bouton de tri.
+
+         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
+         ===================================================================== -->
+    <button id="btn-trier-livraisons">Trier par date</button>
+
+    <table>
+      <thead>
+        <!-- TODO (Dev FS3) : en-têtes du tableau (Membre, Culture, Quantité, Date) -->
+      </thead>
+      <tbody id="liste-livraisons"></tbody>
+    </table>
+  </main>
+
+  <!-- NE PAS MODIFIER — scripts de connexion au backend -->
+  <script src="../functions.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

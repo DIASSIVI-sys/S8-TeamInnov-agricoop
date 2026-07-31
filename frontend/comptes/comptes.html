@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriCoop Connect — Gestion des comptes</title>
+  <link rel="stylesheet" href="comptes.css">
+</head>
+<body>
+
+  <!-- NAVIGATION — TODO (Dev FS2) -->
+
+  <main>
+    <!-- =====================================================================
+         RÉSERVÉ À LA SECRÉTAIRE — TODO (Dev FS2)
+         Cette page ne devrait être utile qu'à la Secrétaire (rôle Admin).
+         Afficher un avertissement si l'utilisateur connecté n'a pas ce
+         rôle (voir main.js : la variable de session est lue depuis le
+         stockage local du navigateur, clé "agricoop_utilisateur").
+
+         *** NE PAS MODIFIER l'id ci-dessous ***
+         ===================================================================== -->
+    <div id="acces-refuse-comptes" hidden></div>
+
+    <!-- =====================================================================
+         FORMULAIRE NOUVEAU COMPTE — TODO (Dev FS2)
+         Construire le formulaire de création de compte (nom d'utilisateur,
+         mot de passe, rôle, nom complet). Le rôle est un menu déroulant à
+         choix fermé (Président / Trésorière / Responsable dépôt / Membre —
+         la Secrétaire ne recrée pas d'autre Secrétaire depuis cet écran).
+
+         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
+         ===================================================================== -->
+    <form id="form-nouveau-compte">
+      <input type="text" id="c-nom-utilisateur" placeholder="Nom d'utilisateur">
+      <input type="password" id="c-mot-de-passe" placeholder="Mot de passe temporaire">
+      <input type="text" id="c-nom-complet" placeholder="Nom complet">
+      <select id="c-role">
+        <option value="">-- Choisir un rôle --</option>
+        <option value="Président">Président</option>
+        <option value="Trésorière">Trésorière</option>
+        <option value="Responsable dépôt">Responsable dépôt</option>
+        <option value="Membre">Membre</option>
+      </select>
+      <button type="submit">Créer le compte</button>
+    </form>
+
+    <div id="message-erreur-compte" hidden></div>
+    <div id="message-succes-compte" hidden></div>
+
+    <!-- =====================================================================
+         LISTE DES COMPTES EXISTANTS — TODO (Dev FS2)
+         Construire un tableau. Le contenu des <tr> est injecté par main.js.
+
+         *** NE PAS MODIFIER l'id ci-dessous ***
+         ===================================================================== -->
+    <table>
+      <thead>
+        <!-- TODO (Dev FS2) : en-têtes (Nom d'utilisateur, Nom complet, Rôle) -->
+      </thead>
+      <tbody id="liste-comptes"></tbody>
+    </table>
+  </main>
+
+  <!-- NE PAS MODIFIER — scripts de connexion au backend -->
+  <script src="../functions.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

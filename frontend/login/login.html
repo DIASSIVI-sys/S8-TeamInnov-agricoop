@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriCoop Connect — Connexion</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       ÉCRAN DE CONNEXION — TODO (Dev FS1)
+       Construire une page de connexion centrée, sobre : logo/titre de
+       l'application, formulaire, message d'erreur. Layout : centré
+       verticalement et horizontalement, carte de connexion max ~400px de
+       large, responsive mobile.
+
+       *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
+       ===================================================================== -->
+  <main>
+    <form id="form-login">
+      <input type="text" id="l-nom-utilisateur" placeholder="Nom d'utilisateur">
+      <input type="password" id="l-mot-de-passe" placeholder="Mot de passe">
+      <button type="submit">Se connecter</button>
+    </form>
+
+    <div id="message-erreur-login" hidden></div>
+
+    <!-- AIDE — TODO (Dev FS1) : rappel optionnel que les comptes sont créés
+         par la Secrétaire (pas d'auto-inscription) -->
+  </main>
+
+  <!-- NE PAS MODIFIER — scripts de connexion au backend -->
+  <script src="../functions.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

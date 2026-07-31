@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriCoop Connect — Paiements</title>
+  <link rel="stylesheet" href="paiements.css">
+</head>
+<body>
+
+  <!-- NAVIGATION — TODO (Dev FS4) -->
+
+  <main>
+    <!-- =====================================================================
+         FORMULAIRE DE PAIEMENT — TODO (Dev FS4)
+
+         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
+         ===================================================================== -->
+    <form id="form-paiement">
+      <select id="p-membre"><option value="">-- Choisir un membre --</option></select>
+      <input type="number" id="p-montant" min="1" placeholder="Montant (FCFA)">
+      <select id="p-mode-paiement">
+        <option value="">-- Mode de paiement --</option>
+        <option value="Espèces">Espèces</option>
+        <option value="Mobile Money">Mobile Money</option>
+      </select>
+      <button type="submit">Enregistrer</button>
+    </form>
+
+    <div id="message-erreur-paiement" hidden></div>
+    <div id="message-succes-paiement" hidden></div>
+
+    <!-- =====================================================================
+         TOTAL ET HISTORIQUE — TODO (Dev FS4)
+
+         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
+         ===================================================================== -->
+    <div id="total-paiements"></div>
+
+    <table>
+      <thead>
+        <!-- TODO (Dev FS4) : en-têtes (Membre, Montant, Mode de paiement, Date) -->
+      </thead>
+      <tbody id="liste-paiements"></tbody>
+    </table>
+  </main>
+
+  <!-- NE PAS MODIFIER — scripts de connexion au backend -->
+  <script src="../functions.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

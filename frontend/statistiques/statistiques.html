@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriCoop Connect — Statistiques</title>
+  <link rel="stylesheet" href="statistiques.css">
+</head>
+<body>
+
+  <!-- NAVIGATION — TODO (Dev FS6) -->
+
+  <main>
+    <!-- =====================================================================
+         CLASSEMENT DES MEMBRES — TODO (Dev FS6)
+         Le contenu (liste <li>) est injecté par main.js.
+
+         *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
+         ===================================================================== -->
+    <ol id="classement-membres"></ol>
+
+    <!-- =====================================================================
+         TABLEAU PAR CULTURE — TODO (Dev FS6)
+
+         *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
+         ===================================================================== -->
+    <table>
+      <thead>
+        <!-- TODO (Dev FS6) : en-têtes (Culture, Volume total, Valeur totale) -->
+      </thead>
+      <tbody id="tableau-cultures"></tbody>
+    </table>
+
+    <!-- =====================================================================
+         TOP ACHETEUR — TODO (Dev FS6)
+
+         *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
+         ===================================================================== -->
+    <div id="top-acheteur"></div>
+
+    <!-- =====================================================================
+         RAPPORT BAILLEUR — TODO (Dev FS6 + DM)
+         Le dev structure la section, le DM fournit les textes d'habillage.
+         Les valeurs chiffrées sont injectées par main.js.
+
+         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
+         ===================================================================== -->
+    <section id="rapport-bailleur-contenu">
+      <span id="rb-volume"></span>
+      <span id="rb-montant"></span>
+      <span id="rb-taux"></span>
+      <span id="rb-membres"></span>
+    </section>
+  </main>
+
+  <!-- NE PAS MODIFIER — scripts de connexion au backend -->
+  <script src="../functions.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

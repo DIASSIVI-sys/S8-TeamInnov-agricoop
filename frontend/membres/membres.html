@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriCoop Connect — Membres</title>
+  <link rel="stylesheet" href="membres.css">
+</head>
+<body>
+
+  <!-- NAVIGATION — TODO (Dev FS2) -->
+
+  <main>
+    <!-- =====================================================================
+         FILTRES — TODO (Dev FS2)
+         Construire une zone de filtrage : un sélecteur de statut et un champ
+         de recherche par nom. Layout responsive.
+
+         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
+         ===================================================================== -->
+    <select id="filtre-statut">
+      <option value="">Tous</option>
+      <option value="À jour">À jour</option>
+      <option value="En retard">En retard</option>
+    </select>
+
+    <input type="text" id="champ-recherche-membre" placeholder="Rechercher un membre...">
+
+    <!-- =====================================================================
+         LISTE DES MEMBRES — TODO (Dev FS2)
+         Le contenu est injecté par main.js. Le dev doit structurer le
+         conteneur et styliser les éléments .membre-ligne, .badge.
+
+         *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
+         ===================================================================== -->
+    <div id="liste-membres"></div>
+
+    <!-- =====================================================================
+         NOUVEAU MEMBRE — TODO (Dev FS2)
+         Construire le formulaire de création d'un membre (module Membres,
+         nouveau — section 4.1 du FRD). Les 4 champs sont obligatoires.
+         Le village est un menu déroulant fermé (rempli par main.js depuis
+         la liste de référence de la coopérative), pas un champ libre.
+
+         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
+         ===================================================================== -->
+    <form id="form-nouveau-membre">
+      <input type="text" id="nm-prenom" placeholder="Prénom">
+      <input type="text" id="nm-nom" placeholder="Nom">
+      <select id="nm-village"><option value="">-- Choisir un village --</option></select>
+      <input type="text" id="nm-contact" placeholder="Contact (téléphone)">
+      <button type="submit">Créer le membre</button>
+    </form>
+
+    <div id="erreurs-nouveau-membre" hidden></div>
+    <div id="message-succes-nouveau-membre" hidden></div>
+  </main>
+
+  <!-- NE PAS MODIFIER — scripts de connexion au backend -->
+  <script src="../functions.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,446 @@
+{
+  "prix_achat_kg": {
+    "Manioc": 150,
+    "Maïs": 200,
+    "Arachide": 400
+  },
+  "prix_vente_kg": {
+    "Manioc": 220,
+    "Maïs": 280,
+    "Arachide": 500
+  },
+  "membres": [
+    {
+      "id": 1,
+      "nom": "Jean Mabiala",
+      "date_adhesion": "2020-03-01",
+      "village": "Kintélé-Centre",
+      "contact": "066112233"
+    },
+    {
+      "id": 2,
+      "nom": "Alphonsine Nkounkou",
+      "date_adhesion": "2019-01-15",
+      "village": "Mikalou",
+      "contact": "064223344"
+    },
+    {
+      "id": 3,
+      "nom": "Ferdinand Loubota",
+      "date_adhesion": "2019-01-15",
+      "village": "Kintélé-Centre",
+      "contact": "065334455"
+    },
+    {
+      "id": 4,
+      "nom": "Sandra Malonga",
+      "date_adhesion": "2019-06-01",
+      "village": "Ngamakosso",
+      "contact": "069445566"
+    },
+    {
+      "id": 5,
+      "nom": "Prosper Ondongo",
+      "date_adhesion": "2022-09-01",
+      "village": "Séo",
+      "contact": "068556677"
+    },
+    {
+      "id": 6,
+      "nom": "Bernadette Mouyabi",
+      "date_adhesion": "2021-04-15",
+      "village": "Ngoyo",
+      "contact": "067667788"
+    },
+    {
+      "id": 7,
+      "nom": "Sylvain Batantou",
+      "date_adhesion": "2026-01-10",
+      "village": "Ikié",
+      "contact": "066778899"
+    },
+    {
+      "id": 8,
+      "nom": "Odette Kimbembe",
+      "date_adhesion": "2023-02-01",
+      "village": "Mikalou",
+      "contact": "064889900"
+    }
+  ],
+  "livraisons": [
+    {
+      "id": 1,
+      "membre_id": 1,
+      "culture": "Manioc",
+      "quantite": 80,
+      "date": "2026-04-03"
+    },
+    {
+      "id": 2,
+      "membre_id": 3,
+      "culture": "Manioc",
+      "quantite": 65,
+      "date": "2026-04-05"
+    },
+    {
+      "id": 3,
+      "membre_id": 2,
+      "culture": "Arachide",
+      "quantite": 30,
+      "date": "2026-04-10"
+    },
+    {
+      "id": 4,
+      "membre_id": 5,
+      "culture": "Maïs",
+      "quantite": 45,
+      "date": "2026-04-14"
+    },
+    {
+      "id": 5,
+      "membre_id": 6,
+      "culture": "Manioc",
+      "quantite": 90,
+      "date": "2026-04-18"
+    },
+    {
+      "id": 6,
+      "membre_id": 1,
+      "culture": "Manioc",
+      "quantite": 100,
+      "date": "2026-05-02"
+    },
+    {
+      "id": 7,
+      "membre_id": 4,
+      "culture": "Maïs",
+      "quantite": 40,
+      "date": "2026-05-06"
+    },
+    {
+      "id": 8,
+      "membre_id": 8,
+      "culture": "Manioc",
+      "quantite": 75,
+      "date": "2026-05-10"
+    },
+    {
+      "id": 9,
+      "membre_id": 3,
+      "culture": "Arachide",
+      "quantite": 55,
+      "date": "2026-05-15"
+    },
+    {
+      "id": 10,
+      "membre_id": 2,
+      "culture": "Manioc",
+      "quantite": 110,
+      "date": "2026-05-20"
+    },
+    {
+      "id": 11,
+      "membre_id": 7,
+      "culture": "Manioc",
+      "quantite": 60,
+      "date": "2026-06-01"
+    },
+    {
+      "id": 12,
+      "membre_id": 1,
+      "culture": "Manioc",
+      "quantite": 120,
+      "date": "2026-06-05"
+    },
+    {
+      "id": 13,
+      "membre_id": 5,
+      "culture": "Maïs",
+      "quantite": 50,
+      "date": "2026-06-08"
+    },
+    {
+      "id": 14,
+      "membre_id": 6,
+      "culture": "Manioc",
+      "quantite": 85,
+      "date": "2026-06-12"
+    },
+    {
+      "id": 15,
+      "membre_id": 4,
+      "culture": "Manioc",
+      "quantite": 70,
+      "date": "2026-06-18"
+    },
+    {
+      "id": 16,
+      "membre_id": 1,
+      "culture": "Manioc",
+      "quantite": 55,
+      "date": "2026-07-04"
+    },
+    {
+      "id": 17,
+      "membre_id": 3,
+      "culture": "Manioc",
+      "quantite": 70,
+      "date": "2026-07-05"
+    },
+    {
+      "id": 18,
+      "membre_id": 5,
+      "culture": "Arachide",
+      "quantite": 30,
+      "date": "2026-07-06"
+    },
+    {
+      "id": 19,
+      "membre_id": 1,
+      "culture": "Manioc",
+      "quantite": 110,
+      "date": "2026-07-07"
+    },
+    {
+      "id": 20,
+      "membre_id": 4,
+      "culture": "Maïs",
+      "quantite": 40,
+      "date": "2026-07-08"
+    },
+    {
+      "id": 21,
+      "membre_id": 2,
+      "culture": "Manioc",
+      "quantite": 95,
+      "date": "2026-07-08"
+    },
+    {
+      "id": 22,
+      "membre_id": 3,
+      "culture": "Arachide",
+      "quantite": 60,
+      "date": "2026-07-09"
+    },
+    {
+      "id": 23,
+      "membre_id": 8,
+      "culture": "Manioc",
+      "quantite": 80,
+      "date": "2026-07-10"
+    },
+    {
+      "id": 24,
+      "membre_id": 1,
+      "culture": "Maïs",
+      "quantite": 50,
+      "date": "2026-07-11"
+    },
+    {
+      "id": 25,
+      "membre_id": 1,
+      "culture": "Manioc",
+      "quantite": 120,
+      "date": "2026-07-12"
+    }
+  ],
+  "paiements": [
+    {
+      "id": 1,
+      "membre_id": 3,
+      "montant": 8000,
+      "date": "2026-04-20",
+      "mode_paiement": "Mobile Money"
+    },
+    {
+      "id": 2,
+      "membre_id": 2,
+      "montant": 10000,
+      "date": "2026-05-05",
+      "mode_paiement": "Espèces"
+    },
+    {
+      "id": 3,
+      "membre_id": 1,
+      "montant": 12000,
+      "date": "2026-05-25",
+      "mode_paiement": "Espèces"
+    },
+    {
+      "id": 4,
+      "membre_id": 6,
+      "montant": 7000,
+      "date": "2026-06-10",
+      "mode_paiement": "Mobile Money"
+    },
+    {
+      "id": 5,
+      "membre_id": 5,
+      "montant": 6000,
+      "date": "2026-06-15",
+      "mode_paiement": "Espèces"
+    },
+    {
+      "id": 6,
+      "membre_id": 1,
+      "montant": 5000,
+      "date": "2026-07-05",
+      "mode_paiement": "Mobile Money"
+    },
+    {
+      "id": 7,
+      "membre_id": 1,
+      "montant": 15000,
+      "date": "2026-07-14",
+      "mode_paiement": "Espèces"
+    },
+    {
+      "id": 8,
+      "membre_id": 7,
+      "montant": 3000,
+      "date": "2026-07-15",
+      "mode_paiement": "Mobile Money"
+    }
+  ],
+  "acheteurs": [
+    {
+      "id": 1,
+      "nom": "Christiane Nkaya",
+      "lieu": "Marché Poto-Poto"
+    },
+    {
+      "id": 2,
+      "nom": "Unité de transformation Talangaï",
+      "lieu": "Talangaï"
+    },
+    {
+      "id": 3,
+      "nom": "Restaurant Le Kwilu",
+      "lieu": "Brazzaville centre"
+    }
+  ],
+  "ventes": [
+    {
+      "id": 1,
+      "acheteur_id": 1,
+      "culture": "Manioc",
+      "quantite": 100,
+      "prix_kg": 220,
+      "date": "2026-04-22"
+    },
+    {
+      "id": 2,
+      "acheteur_id": 2,
+      "culture": "Maïs",
+      "quantite": 40,
+      "prix_kg": 280,
+      "date": "2026-05-08"
+    },
+    {
+      "id": 3,
+      "acheteur_id": 1,
+      "culture": "Manioc",
+      "quantite": 120,
+      "prix_kg": 210,
+      "date": "2026-05-22"
+    },
+    {
+      "id": 4,
+      "acheteur_id": 3,
+      "culture": "Arachide",
+      "quantite": 25,
+      "prix_kg": 500,
+      "date": "2026-06-03"
+    },
+    {
+      "id": 5,
+      "acheteur_id": 2,
+      "culture": "Manioc",
+      "quantite": 80,
+      "prix_kg": 220,
+      "date": "2026-06-20"
+    },
+    {
+      "id": 6,
+      "acheteur_id": 1,
+      "culture": "Manioc",
+      "quantite": 150,
+      "prix_kg": 220,
+      "date": "2026-07-13"
+    },
+    {
+      "id": 7,
+      "acheteur_id": 2,
+      "culture": "Maïs",
+      "quantite": 60,
+      "prix_kg": 280,
+      "date": "2026-07-12"
+    },
+    {
+      "id": 8,
+      "acheteur_id": 1,
+      "culture": "Arachide",
+      "quantite": 40,
+      "prix_kg": 500,
+      "date": "2026-07-14"
+    },
+    {
+      "id": 9,
+      "acheteur_id": 3,
+      "culture": "Manioc",
+      "quantite": 90,
+      "prix_kg": 210,
+      "date": "2026-07-15"
+    }
+  ],
+  "utilisateurs": [
+    {
+      "id": 1,
+      "nom_utilisateur": "smalonga",
+      "mot_de_passe": "Secretaire2026",
+      "role": "Secrétaire",
+      "nom_complet": "Sandra Malonga",
+      "membre_id": 4
+    },
+    {
+      "id": 2,
+      "nom_utilisateur": "floubota",
+      "mot_de_passe": "President2026",
+      "role": "Président",
+      "nom_complet": "Ferdinand Loubota",
+      "membre_id": 3
+    },
+    {
+      "id": 3,
+      "nom_utilisateur": "abikindou",
+      "mot_de_passe": "Tresoriere2026",
+      "role": "Trésorière",
+      "nom_complet": "Aurélie Bikindou",
+      "membre_id": null
+    },
+    {
+      "id": 4,
+      "nom_utilisateur": "jmabiala",
+      "mot_de_passe": "Depot2026",
+      "role": "Responsable dépôt",
+      "nom_complet": "Jean Mabiala",
+      "membre_id": 1
+    },
+    {
+      "id": 5,
+      "nom_utilisateur": "ankounkou",
+      "mot_de_passe": "Membre2026",
+      "role": "Membre",
+      "nom_complet": "Alphonsine Nkounkou",
+      "membre_id": 2
+    }
+  ],
+  "villages": [
+    "Kintélé-Centre",
+    "Mikalou",
+    "Ngamakosso",
+    "Séo",
+    "Ngoyo",
+    "Ikié"
+  ]
+}
