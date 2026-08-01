@@ -9,23 +9,55 @@
 <body>
 
   <!-- NAVIGATION — TODO (Dev FS4) -->
+   <nav class="nav-principale">
+  <div class="nav-logo">🌿 AgriCoop Connect</div>
+  <div class="nav-liens">
+    <a href="../accueil/accueil.html">Accueil</a>
+    <a href="../membres/membres.html">Membres</a>
+    <a href="../livraisons/livraisons.html">Livraisons</a>
+    <a href="paiements.html" class="lien-actif">Paiements</a>
+    <a href="../stock/stock.html">Stock</a>
+  </div>
+  <button class="btn-deconnexion">⏻ Déconnexion</button>
+  </nav>
 
   <main>
-    <!-- =====================================================================
-         FORMULAIRE DE PAIEMENT — TODO (Dev FS4)
+    <div class="entete-paiements">
+  <h1>Paiements</h1>
+  <label for="toggle-form-paiement" class="btn-nouveau-paiement">+ Nouveau paiement</label>
+</div>
 
-         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
-         ===================================================================== -->
-    <form id="form-paiement">
-      <select id="p-membre"><option value="">-- Choisir un membre --</option></select>
+<input type="checkbox" id="toggle-form-paiement" class="toggle-form">
+
+<!-- fond semi-transparent, cliquable pour fermer le modal -->
+<label for="toggle-form-paiement" class="overlay-fond"></label>
+
+<div class="conteneur-form-paiement">
+  <form id="form-paiement">
+    <div class="champ-form">
+      <label for="p-membre">Membre</label>
+      <select id="p-membre">
+        <option value="">-- Choisir un membre --</option>
+      </select>
+    </div>
+
+    <div class="champ-form">
+      <label for="p-montant">Montant (FCFA)</label>
       <input type="number" id="p-montant" min="1" placeholder="Montant (FCFA)">
+    </div>
+
+    <div class="champ-form">
+      <label for="p-mode-paiement">Mode de paiement</label>
       <select id="p-mode-paiement">
         <option value="">-- Mode de paiement --</option>
         <option value="Espèces">Espèces</option>
         <option value="Mobile Money">Mobile Money</option>
       </select>
-      <button type="submit">Enregistrer</button>
-    </form>
+    </div>
+
+    <button type="submit">Enregistrer</button>
+  </form>
+</div>
 
     <div id="message-erreur-paiement" hidden></div>
     <div id="message-succes-paiement" hidden></div>
@@ -35,14 +67,39 @@
 
          *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
          ===================================================================== -->
-    <div id="total-paiements"></div>
+    
+    <div class="bloc-total">
+      <span class="bloc-total-label">Total des paiements :</span>
+      <div id="total-paiements"></div>
+    </div>
 
+    <!--<div id="total-paiements"></div>-->
+    <div class="carte-tableau">
     <table>
       <thead>
         <!-- TODO (Dev FS4) : en-têtes (Membre, Montant, Mode de paiement, Date) -->
+        <tr>
+          <th>Membre</th>
+          <th>Montant</th>
+          <th>Mode de paiement</th>
+          <th>Date</th>
+        </tr>
       </thead>
       <tbody id="liste-paiements"></tbody>
     </table>
+    </div>
+
+    <div class="galerie-photos">
+  <div class="photo-carte">
+    <img src="../images/agriculteurs.jpg" alt="Agriculteurs locaux dans un champ">
+    <span class="photo-legende">Soutien aux agriculteurs locaux</span>
+  </div>
+
+  <div class="photo-carte">
+    <img src="../images/transparence.jpg" alt="Transactions financières transparentes">
+    <span class="photo-legende">Transparence financière</span>
+  </div>
+</div>
   </main>
 
   <!-- NE PAS MODIFIER — scripts de connexion au backend -->
