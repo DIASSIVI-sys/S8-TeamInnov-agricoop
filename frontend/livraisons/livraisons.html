@@ -9,8 +9,24 @@
 <body>
 
   <!-- NAVIGATION — TODO (Dev FS3) -->
+   <header class="header">
+    <div class="logo">
+      <h1>AgriCoop Connect</h1>
+     </div>
+     <div class="navigation">
+      <ul>
+        <li><a href="../dashboard/dashboard.html">Acceuil</a></li>
+         <li><a href="../membres/membres.html">Membres</a></li>
+        <li><a href="#" class="active">Livraisons</a></li>
+        <li><a href="../paiements/paiements.html">Paiements</a></li>
+        <li><a href="../statistiques/statistiques.html">Stock</a></li>
+        <li><a href="../ventes/ventes.html">Ventes</a></li>
+      </ul>
+     </div>
 
-  <main>
+   </header>
+
+  <main class="container">
     <!-- =====================================================================
          FORMULAIRE D'ENREGISTREMENT — TODO (Dev FS3)
          Construire le formulaire (membre, culture, quantité) et les zones
@@ -18,21 +34,37 @@
 
          *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
          ===================================================================== -->
+    <section class="titre">
+      <h2>Gestion des livraisons</h2>
+      <p>Enregistrez les livraisons des producteurs et consultez l'historique des opérations.</p>
+    </section>
+    <section class="card">
+      <h3>Nouvelle livraison</h3>
     <form id="form-livraison">
-      <select id="f-membre"><option value="">-- Choisir un membre --</option></select>
-      <select id="f-culture">
+
+      <div class="form-group">
+          <label for="f-membre">Membre</label>
+           <select id="f-membre" required><option value="">-- Choisir un membre --</option></select>
+      </div>
+      <div class="form-group">
+        <label for="f-culture">Culture</label>
+        <select id="f-culture" required>
         <option value="">-- Choisir une culture --</option>
         <option value="Manioc">Manioc</option>
         <option value="Maïs">Maïs</option>
         <option value="Arachide">Arachide</option>
       </select>
-      <input type="number" id="f-quantite" min="1" placeholder="Quantité (kg)">
-      <button type="submit">Enregistrer</button>
+      </div>
+    <div class="form-group">
+      <label for="f-quantite">Quantité</label>
+      <input type="number" id="f-quantite" min="1" placeholder="Quantité (kg)" required>
+    </div>
+          <button type="submit" class="btn-primary">Enregistrer</button>
     </form>
 
     <div id="message-erreur-livraison" hidden></div>
     <div id="message-succes-livraison" hidden></div>
-
+ </section>
     <!-- =====================================================================
          TABLEAU DES LIVRAISONS — TODO (Dev FS3)
          Construire un tableau HTML triable. Le contenu des <tr> est injecté
@@ -41,15 +73,28 @@
 
          *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
          ===================================================================== -->
-    <button id="btn-trier-livraisons">Trier par date</button>
-
+     <section class="card">
+      <div class="table-header">
+        <h3>Historique des livraisons</h3>
+         <button id="btn-trier-livraisons">Trier par date</button>
+      </div>
+     <div class="table-responsive">
     <table>
       <thead>
         <!-- TODO (Dev FS3) : en-têtes du tableau (Membre, Culture, Quantité, Date) -->
+         <tr>
+            <th>Membre</th>
+             <th>Culture</th>
+             <th>Quantité (kg)</th>
+             <th>Date</th>
+         </tr>
       </thead>
       <tbody id="liste-livraisons"></tbody>
     </table>
+    </div>
+   </section>
   </main>
+  <footer class="footer">© 2026 AgriCoop Connect - Coopérative COMAKI developper par equipe TeamInnov</footer>
 
   <!-- NE PAS MODIFIER — scripts de connexion au backend -->
   <script src="../functions.js"></script>
