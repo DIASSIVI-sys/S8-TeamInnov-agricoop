@@ -28,6 +28,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    text-decoration: none;
 }
 
 .logo-text {
@@ -37,7 +38,6 @@ body {
     font-size: 18px;
     line-height: 28px;
     letter-spacing: -0.45px;
-    text-decoration: none;
 }
 
 .logo-img-container{
