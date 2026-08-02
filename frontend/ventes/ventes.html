@@ -8,30 +8,59 @@
 </head>
 <body>
 
-  <!-- NAVIGATION — TODO (Dev FS5) -->
+  <!-- NAVIGATION — TODO (Dev FS5)
+       Pas d'id imposé par main.js ici : structure libre. -->
 
-  <main>
+  <main class="app-main">
+
+    <section class="page-head">
+      <div>
+        <h1>Ventes &amp; Stock</h1>
+        <p class="page-subtitle">Suivez le stock disponible par culture et l'historique des ventes aux acheteurs.</p>
+      </div>
+    </section>
+
     <!-- =====================================================================
          CARTES STOCK — TODO (Dev FS5)
          Le contenu est injecté par main.js (une carte par culture avec
          badge et barre de remplissage). Le dev stylise .card, .badge,
          .barre-stock-fond, .barre-stock-remplissage.
 
-         *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
+         Structure RÉELLE générée par main.js (confirmée dans le code) : -->
+         <div class="card" data-pourcentage="...">
+           <h3>Culture</h3>
+           <p>Qte kg disponible</p>
+           <span class="badge">Épuisé | Stock faible | Disponible</span>
+           <div class="barre-stock-fond">
+             <div class="barre-stock-remplissage" style="width:50%"></div>
+           </div>
+         </div>
+
+         <!-- *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
          ===================================================================== -->
-    <div id="cartes-stock"></div>
+    <h2 class="section-title">Stock disponible</h2>
+    <div id="cartes-stock" class="cartes-stock-grid"></div>
 
     <!-- =====================================================================
          TABLEAU DES VENTES — TODO (Dev FS5)
 
          *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
          ===================================================================== -->
-    <table>
-      <thead>
-        <!-- TODO (Dev FS5) : en-têtes (Acheteur, Culture, Quantité, Prix/kg) -->
-      </thead>
-      <tbody id="liste-ventes"></tbody>
-    </table>
+    <h2 class="section-title">Historique des ventes</h2>
+    <div class="table-card">
+      <table class="ventes-table">
+        <thead>
+          <tr>
+            <th>Acheteur</th>
+            <th>Culture</th>
+            <th>Quantité</th>
+            <th>Prix/kg</th>
+          </tr>
+        </thead>
+        <tbody id="liste-ventes"></tbody>
+      </table>
+    </div>
+
   </main>
 
   <!-- NE PAS MODIFIER — scripts de connexion au backend -->
