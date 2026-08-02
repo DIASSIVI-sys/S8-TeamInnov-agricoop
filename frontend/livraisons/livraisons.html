@@ -9,22 +9,103 @@
 <body>
 
   <!-- NAVIGATION — TODO (Dev FS3) -->
-   <header class="header">
-    <div class="logo">
-      <h1>AgriCoop Connect</h1>
-     </div>
-     <div class="navigation">
-      <ul>
-        <li><a href="../dashboard/dashboard.html">Acceuil</a></li>
-         <li><a href="../membres/membres.html">Membres</a></li>
-        <li><a href="#" class="active">Livraisons</a></li>
-        <li><a href="../paiements/paiements.html">Paiements</a></li>
-        <li><a href="../statistiques/statistiques.html">Stock</a></li>
-        <li><a href="../ventes/ventes.html">Ventes</a></li>
-      </ul>
-     </div>
+   <header class="navbar">
+      <a href="dashboard.html" class="logo">
+        <span class="logo-img-container">
+          <img src="../assets/images/Favicon.png" alt="" />
+        </span>
 
-   </header>
+        <span class="logo-text">AgriCoop Connect</span>
+      </a>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-input" />
+
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav-menu">
+        <ul class="nav-list">
+          <li>
+            <a href="../dashboard/dashboard.html" class="nav-link active"> Dashboard </a>
+          </li>
+
+          <li class="dropdown">
+            <!--Checkbox pour ouvrir le dropdown Gestion-->
+            <input type="checkbox" id="gestion-toggle" class="dropdown-input" />
+            <label for="gestion-toggle" class="nav-link dropdown-label">
+              <span>Gestion</span>
+              <img
+                src="../assets/images/dropdown-icon.png"
+                alt=""
+                class="arrow"
+              />
+            </label>
+
+            <!-- Sous-menu -->
+            <ul class="dropdown-menu">
+              <li>
+                <a href="../comptes/comptes.html"> Comptes </a>
+              </li>
+              <li>
+                <a href="../membres/membres.html"> Membres </a>
+              </li>
+            </ul>
+          </li>
+
+          <!--- ACTIVITÉS --->
+
+          <li class="dropdown">
+            <!--Checkbox pour ouvrir le dropdown Activités-->
+
+            <input
+              type="checkbox"
+              id="activite-toggle"
+              class="dropdown-input"
+            />
+
+            <label for="activite-toggle" class="nav-link dropdown-label">
+              <span>Activités</span>
+              <img
+                src="../assets/images/dropdown-icon.png"
+                alt=""
+                class="arrow"
+              />
+            </label>
+
+            <!-- Sous-menu -->
+
+            <ul class="dropdown-menu">
+              <li>
+                <a href="../ventes/ventes.html"> Ventes </a>
+              </li>
+              <li>
+                <a href="../paiements/paiements.html"> Paiements </a>
+              </li>
+              <li>
+                <a href="../livraisons/livraisons.html"> Livraisons </a>
+              </li>
+            </ul>
+          </li>
+
+          <!---STATISTIQUES--->
+
+          <li>
+            <a href="../statistiques/statistiques.html" class="nav-link"> Statistiques </a>
+          </li>
+
+          <!--- LOGIN --->
+          <li>
+            <a href="../login/login.html" class="nav-link login-logout-link">
+              <img src="../assets/images/logout_icon.svg" alt="" />
+              <span>Déconnexion</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
   <main class="container">
     <!-- =====================================================================
