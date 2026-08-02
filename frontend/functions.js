@@ -51,7 +51,15 @@ function validerFormulaireLogin(donnees) {
    Exemple    : compterJoursActifs({"2026-07-08": 135, "2026-07-09": 60}, 100) -> 1
    Astuce     : Object.values(livraisonsParJour) donne un tableau des quantités. */
 function compterJoursActifs(livraisonsParJour, seuil) {
-  // TODO : à compléter
+  let compteur = 0;
+
+  for (const quantite of Object.values(livraisonsParJour)) {
+    if (quantite > seuil) {
+      compteur++;
+    }
+  }
+
+  return compteur;
 }
 
 
