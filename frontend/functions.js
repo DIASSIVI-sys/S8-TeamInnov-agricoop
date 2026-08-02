@@ -32,7 +32,14 @@
    Retourne : true si tout est valide, false sinon.
    Astuce   : "  ".trim() donne une chaîne vide "". */
 function validerFormulaireLogin(donnees) {
-  // TODO : à compléter
+  if (
+    donnees.nom_utilisateur?.trim().length > 0 &&
+    donnees.mot_de_passe?.length > 0
+  ) {
+    return true;
+  }
+
+  return false;
 }
 
 
@@ -44,7 +51,15 @@ function validerFormulaireLogin(donnees) {
    Exemple    : compterJoursActifs({"2026-07-08": 135, "2026-07-09": 60}, 100) -> 1
    Astuce     : Object.values(livraisonsParJour) donne un tableau des quantités. */
 function compterJoursActifs(livraisonsParJour, seuil) {
-  // TODO : à compléter
+  let compteur = 0;
+
+  for (const quantite of Object.values(livraisonsParJour)) {
+    if (quantite > seuil) {
+      compteur++;
+    }
+  }
+
+  return compteur;
 }
 
 
@@ -134,6 +149,8 @@ function validerFormulaireLivraison(donnees) {
   return true;
 }
 
+
+
 /* [Dev FS3 — Livraisons — niveau S8 : tableau .sort]
    Trie une liste de livraisons par date, de la plus récente à la plus
    ancienne (utilisé par un bouton "trier" sur la page Livraisons).
@@ -142,6 +159,15 @@ function validerFormulaireLivraison(donnees) {
    Astuce    : au format "AAAA-MM-JJ", comparer les chaînes fonctionne
                directement (ordre alphabétique = ordre chronologique). */
 function trierLivraisonsParDate(livraisons) {
+  return livraisons.sort((a, b) => {
+    if(a.date < b.date){
+      return 1;
+    }
+    if(a.date > b.date){
+      return -1;
+    }
+    return 0;
+  });
   // TODO : à compléter
 }
 
@@ -159,6 +185,18 @@ function trierLivraisonsParDate(livraisons) {
    Retourne : true si tout est valide, false sinon. */
 function validerFormulairePaiement(donnees) {
   // TODO : à compléter
+  //membre_id ne doit pas être vide
+  if(donnees.membre_id !== "" && donnees.membre_id !== null && donnees.membre_id !== undefined){
+    // montant doit être un nombre strictement supérieur à 0
+    const montant = Number(donnees.montant);
+    if (montant > 0) {
+      // mode_paiement doit être "Espèces" ou "Mobile Money"
+      if (donnees.mode_paiement === "Espèces" || donnees.mode_paiement === "Mobile Money") {
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 
@@ -170,6 +208,11 @@ function validerFormulairePaiement(donnees) {
    Exemple   : calculerTotalPaiements([{montant:5000},{montant:3000}]) -> 8000 */
 function calculerTotalPaiements(paiements) {
   // TODO : à compléter
+   let total = 0;
+    for (let i = 0; i < paiements.length; i++) {
+      total += paiements[i].montant;
+    }
+    return total;
 }
 
 
@@ -209,7 +252,10 @@ function formaterMontant(montant) {
    Paramètre : classement (tableau d'objets), chaque élément a .volume_total (nombre)
    Retourne  : le tableau trié par .volume_total décroissant. */
 function trierClassementParVolume(classement) {
+  
   // TODO : à compléter
+  return classement.sort((a, b) => b.volume_total - a.volume_total);
+
 }
 
 
@@ -221,6 +267,14 @@ function trierClassementParVolume(classement) {
    Astuce    : dateStr.split("-") donne ["2026", "07", "12"]. */
 function formaterDate(dateStr) {
   // TODO : à compléter
+  
+  const parties = dateStr.split("-");
+  const annee = parties[0];
+  const mois = parties[1];
+  const jour = parties[2];
+  return jour + "/" + mois + "/" + annee;
+
+
 }
 
 

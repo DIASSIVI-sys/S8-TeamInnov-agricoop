@@ -8,24 +8,145 @@
 </head>
 <body>
 
-  <!-- NAVIGATION — TODO (Dev FS4) -->
+  <header class="navbar">
+      <a href="dashboard.html" class="logo">
+        <span class="logo-img-container">
+          <img src="../assets/images/Favicon.png" alt="" />
+        </span>
+
+        <span class="logo-text">AgriCoop Connect</span>
+      </a>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-input" />
+
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav-menu">
+        <ul class="nav-list">
+          <li>
+            <a href="../dashboard/dashboard.html" class="nav-link active"> Dashboard </a>
+          </li>
+
+          <li class="dropdown">
+            <!--Checkbox pour ouvrir le dropdown Gestion-->
+            <input type="checkbox" id="gestion-toggle" class="dropdown-input" />
+            <label for="gestion-toggle" class="nav-link dropdown-label">
+              <span>Gestion</span>
+              <img
+                src="../assets/images/dropdown-icon.png"
+                alt=""
+                class="arrow"
+              />
+            </label>
+
+            <!-- Sous-menu -->
+            <ul class="dropdown-menu">
+              <li>
+                <a href="../comptes/comptes.html"> Comptes </a>
+              </li>
+              <li>
+                <a href="../membres/membres.html"> Membres </a>
+              </li>
+            </ul>
+          </li>
+
+          <!--- ACTIVITÉS --->
+
+          <li class="dropdown">
+            <!--Checkbox pour ouvrir le dropdown Activités-->
+
+            <input
+              type="checkbox"
+              id="activite-toggle"
+              class="dropdown-input"
+            />
+
+            <label for="activite-toggle" class="nav-link dropdown-label">
+              <span>Activités</span>
+              <img
+                src="../assets/images/dropdown-icon.png"
+                alt=""
+                class="arrow"
+              />
+            </label>
+
+            <!-- Sous-menu -->
+
+            <ul class="dropdown-menu">
+              <li>
+                <a href="../ventes/ventes.html"> Ventes </a>
+              </li>
+              <li>
+                <a href="../paiements/paiements.html"> Paiements </a>
+              </li>
+              <li>
+                <a href="../livraisons/livraisons.html"> Livraisons </a>
+              </li>
+            </ul>
+          </li>
+
+          <!---STATISTIQUES--->
+
+          <li>
+            <a href="../statistiques/statistiques.html" class="nav-link"> Statistiques </a>
+          </li>
+
+          <!--- LOGIN --->
+          <li>
+            <a href="../login/login.html" class="nav-link login-logout-link">
+              <img src="../assets/images/logout_icon.svg" alt="" />
+              <span>Déconnexion</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+   
+  <!-- NAVIGATION — TODO (Dev FS4) -->  
+ 
 
   <main>
-    <!-- =====================================================================
-         FORMULAIRE DE PAIEMENT — TODO (Dev FS4)
+    <div class="entete-paiements">
+  <h1>Paiements</h1>
+  <label for="toggle-form-paiement" class="btn-nouveau-paiement">+ Nouveau paiement</label>
+</div>
 
-         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
-         ===================================================================== -->
-    <form id="form-paiement">
-      <select id="p-membre"><option value="">-- Choisir un membre --</option></select>
+<input type="checkbox" id="toggle-form-paiement" class="toggle-form">
+
+<!-- fond semi-transparent, cliquable pour fermer le modal -->
+<label for="toggle-form-paiement" class="overlay-fond"></label>
+
+<div class="conteneur-form-paiement">
+  <form id="form-paiement">
+    <div class="champ-form">
+      <label for="p-membre">Membre</label>
+      <select id="p-membre">
+        <option value="">-- Choisir un membre --</option>
+      </select>
+    </div>
+
+    <div class="champ-form">
+      <label for="p-montant">Montant (FCFA)</label>
       <input type="number" id="p-montant" min="1" placeholder="Montant (FCFA)">
+    </div>
+
+    <div class="champ-form">
+      <label for="p-mode-paiement">Mode de paiement</label>
       <select id="p-mode-paiement">
         <option value="">-- Mode de paiement --</option>
         <option value="Espèces">Espèces</option>
         <option value="Mobile Money">Mobile Money</option>
       </select>
-      <button type="submit">Enregistrer</button>
-    </form>
+    </div>
+
+    <button type="submit">Enregistrer</button>
+  </form>
+</div>
 
     <div id="message-erreur-paiement" hidden></div>
     <div id="message-succes-paiement" hidden></div>
@@ -35,14 +156,42 @@
 
          *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
          ===================================================================== -->
-    <div id="total-paiements"></div>
+    
+    <div class="bloc-total">
+      <span class="bloc-total-label">Total des paiements :</span>
+      <div id="total-paiements"></div>
+    </div>
 
+    <!--<div id="total-paiements"></div>-->
+    <h2 class="titre-section">Historique des paiements</h2>
+    <div class="carte-tableau">
+       <div class="carte-tableau-scroll">
     <table>
       <thead>
         <!-- TODO (Dev FS4) : en-têtes (Membre, Montant, Mode de paiement, Date) -->
+        <tr>
+          <th>Membre</th>
+          <th>Montant</th>
+          <th>Mode de paiement</th>
+          <th>Date</th>
+        </tr>
       </thead>
       <tbody id="liste-paiements"></tbody>
     </table>
+    </div>
+    </div>
+
+    <div class="galerie-photos">
+  <div class="photo-carte">
+    <img src="../assets/images/Terre.jpg" alt="Agriculteurs locaux dans un champ">
+    <span class="photo-legende">Soutien aux agriculteurs locaux</span>
+  </div>
+
+  <div class="photo-carte">
+    <img src="../assets/images/Transparence.jpg" alt="Transactions financières transparentes">
+    <span class="photo-legende">Transparence financière</span>
+  </div>
+</div>
   </main>
 
   <!-- NE PAS MODIFIER — scripts de connexion au backend -->
