@@ -191,6 +191,7 @@ function formaterMontant(montant) {
    Paramètre : classement (tableau d'objets), chaque élément a .volume_total (nombre)
    Retourne  : le tableau trié par .volume_total décroissant. */
 function trierClassementParVolume(classement) {
+  
   // TODO : à compléter
 }
 

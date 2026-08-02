@@ -9,34 +9,90 @@
 <body>
 
   <!-- NAVIGATION — TODO (Dev FS6) -->
+   <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../images/logo.png" alt="AgriCoop Connect">
+            </div>
+            <ul class="nav-links">
+                <li><a href="../dashboard/dashboard.html">Accueil</a></li>
+                <li><a href="../membres/membres.html">Membres</a></li>
+                <li><a href="../livraisons/livraisons.html">Livraisons</a></li>
+                <li><a href="../paiements/paiements.html">Paiements</a></li>
+                <li><a href="../ventes/ventes.html">Stock</a></li>
+                <li><a href="#" class="active">Statistiques</a></li>
+            </ul>
+            <button class="logout-btn">Déconnexion</button>
+        </nav>
+    </header>
 
-  <main>
+
+  <main class="contenu">
     <!-- =====================================================================
          CLASSEMENT DES MEMBRES — TODO (Dev FS6)
          Le contenu (liste <li>) est injecté par main.js.
 
          *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
          ===================================================================== -->
-    <ol id="classement-membres"></ol>
+         <section class="page-title">
+            <h2>Statistiques & Rapport</h2>
+            <p>Apercu global des activités de la coopérative de COMAKI</p>
+         </section>
+         <section class="stats-grid">
+          <article class="stats-card">
+            <h3>Membres actifs</h3>
+            <p class="nombre">8</p>
+          </article>
+          <article class="stats-card">
+            <h3>Livraisons</h3>
+            <p class="nombre">25</p>
+          </article>
+          <article class="stats-card">
+            <h3>Volumes total</h3>
+            <p class="nombre">1340 kg</p>
+          </article>
+          <article class="stats-card">
+            <h3>Revenus</h3>
+            <p class="nombre">127 500 FCFA</p>
+          </article>
+         </section>
+
+         <section class="card">
+         <h2>Classement des Producteurs</h2>
+         <ol id="classement-membres"></ol>
+         </section>
+
 
     <!-- =====================================================================
          TABLEAU PAR CULTURE — TODO (Dev FS6)
 
          *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
          ===================================================================== -->
+   <section class="card">
+   <h2> Volumes par culture</h2>
     <table>
       <thead>
         <!-- TODO (Dev FS6) : en-têtes (Culture, Volume total, Valeur totale) -->
+          <tr>
+               <th>Culture</th>
+               <th>Volume total</th>
+               <th>Valeur totale</th>
+              </tr>
       </thead>
       <tbody id="tableau-cultures"></tbody>
     </table>
+</section>
 
     <!-- =====================================================================
          TOP ACHETEUR — TODO (Dev FS6)
 
          *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
          ===================================================================== -->
-    <div id="top-acheteur"></div>
+         <section class="card">
+           <h2>Meilleur acheteur</h2>
+          <div id="top-acheteur"></div>
+        </section>
+
 
     <!-- =====================================================================
          RAPPORT BAILLEUR — TODO (Dev FS6 + DM)
@@ -45,11 +101,25 @@
 
          *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
          ===================================================================== -->
-    <section id="rapport-bailleur-contenu">
-      <span id="rb-volume"></span>
+   <section class="card">
+      <h2>Rapport Bailleur</h2>
+      <p>Synthèse des performances de la coopérative destinée aux partenaires financiers.</p></section>
+    <div id="rapport-bailleur-contenu">
+      <p><strong>Volume total</strong>
+        <span id="rb-volume"></span>
+      </P>
+    <p>
+      <strong>Montant total</strong>
       <span id="rb-montant"></span>
+    </P>
+      <p>
+        <strong>Taux de paiement</strong>
       <span id="rb-taux"></span>
+    <p>
+      <strong>Membre actifs</strong>
       <span id="rb-membres"></span>
+      </p>
+
     </section>
   </main>
 
