@@ -9,8 +9,105 @@
 <body>
 
   <!-- NAVIGATION — TODO (Dev FS3) -->
+   <header class="navbar">
+      <a href="dashboard.html" class="logo">
+        <span class="logo-img-container">
+          <img src="../assets/images/Favicon.png" alt="" />
+        </span>
 
-  <main>
+        <span class="logo-text">AgriCoop Connect</span>
+      </a>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-input" />
+
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav-menu">
+        <ul class="nav-list">
+          <li>
+            <a href="../dashboard/dashboard.html" class="nav-link active"> Dashboard </a>
+          </li>
+
+          <li class="dropdown">
+            <!--Checkbox pour ouvrir le dropdown Gestion-->
+            <input type="checkbox" id="gestion-toggle" class="dropdown-input" />
+            <label for="gestion-toggle" class="nav-link dropdown-label">
+              <span>Gestion</span>
+              <img
+                src="../assets/images/dropdown-icon.png"
+                alt=""
+                class="arrow"
+              />
+            </label>
+
+            <!-- Sous-menu -->
+            <ul class="dropdown-menu">
+              <li>
+                <a href="../comptes/comptes.html"> Comptes </a>
+              </li>
+              <li>
+                <a href="../membres/membres.html"> Membres </a>
+              </li>
+            </ul>
+          </li>
+
+          <!--- ACTIVITÉS --->
+
+          <li class="dropdown">
+            <!--Checkbox pour ouvrir le dropdown Activités-->
+
+            <input
+              type="checkbox"
+              id="activite-toggle"
+              class="dropdown-input"
+            />
+
+            <label for="activite-toggle" class="nav-link dropdown-label">
+              <span>Activités</span>
+              <img
+                src="../assets/images/dropdown-icon.png"
+                alt=""
+                class="arrow"
+              />
+            </label>
+
+            <!-- Sous-menu -->
+
+            <ul class="dropdown-menu">
+              <li>
+                <a href="../ventes/ventes.html"> Ventes </a>
+              </li>
+              <li>
+                <a href="../paiements/paiements.html"> Paiements </a>
+              </li>
+              <li>
+                <a href="../livraisons/livraisons.html"> Livraisons </a>
+              </li>
+            </ul>
+          </li>
+
+          <!---STATISTIQUES--->
+
+          <li>
+            <a href="../statistiques/statistiques.html" class="nav-link"> Statistiques </a>
+          </li>
+
+          <!--- LOGIN --->
+          <li>
+            <a href="../login/login.html" class="nav-link login-logout-link">
+              <img src="../assets/images/logout_icon.svg" alt="" />
+              <span>Déconnexion</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+  <main class="container">
     <!-- =====================================================================
          FORMULAIRE D'ENREGISTREMENT — TODO (Dev FS3)
          Construire le formulaire (membre, culture, quantité) et les zones
@@ -18,21 +115,37 @@
 
          *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
          ===================================================================== -->
+    <section class="titre">
+      <h2>Gestion des livraisons</h2>
+      <p>Enregistrez les livraisons des producteurs et consultez l'historique des opérations.</p>
+    </section>
+    <section class="card">
+      <h3>Nouvelle livraison</h3>
     <form id="form-livraison">
-      <select id="f-membre"><option value="">-- Choisir un membre --</option></select>
-      <select id="f-culture">
+
+      <div class="form-group">
+          <label for="f-membre">Membre</label>
+           <select id="f-membre" required><option value="">-- Choisir un membre --</option></select>
+      </div>
+      <div class="form-group">
+        <label for="f-culture">Culture</label>
+        <select id="f-culture" required>
         <option value="">-- Choisir une culture --</option>
         <option value="Manioc">Manioc</option>
         <option value="Maïs">Maïs</option>
         <option value="Arachide">Arachide</option>
       </select>
-      <input type="number" id="f-quantite" min="1" placeholder="Quantité (kg)">
-      <button type="submit">Enregistrer</button>
+      </div>
+    <div class="form-group">
+      <label for="f-quantite">Quantité</label>
+      <input type="number" id="f-quantite" min="1" placeholder="Quantité (kg)" required>
+    </div>
+          <button type="submit" class="btn-primary">Enregistrer</button>
     </form>
 
     <div id="message-erreur-livraison" hidden></div>
     <div id="message-succes-livraison" hidden></div>
-
+ </section>
     <!-- =====================================================================
          TABLEAU DES LIVRAISONS — TODO (Dev FS3)
          Construire un tableau HTML triable. Le contenu des <tr> est injecté
@@ -41,15 +154,28 @@
 
          *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
          ===================================================================== -->
-    <button id="btn-trier-livraisons">Trier par date</button>
-
+     <section class="card">
+      <div class="table-header">
+        <h3>Historique des livraisons</h3>
+         <button id="btn-trier-livraisons">Trier par date</button>
+      </div>
+     <div class="table-responsive">
     <table>
       <thead>
         <!-- TODO (Dev FS3) : en-têtes du tableau (Membre, Culture, Quantité, Date) -->
+         <tr>
+            <th>Membre</th>
+             <th>Culture</th>
+             <th>Quantité (kg)</th>
+             <th>Date</th>
+         </tr>
       </thead>
       <tbody id="liste-livraisons"></tbody>
     </table>
+    </div>
+   </section>
   </main>
+  <footer class="footer">© 2026 AgriCoop Connect - Coopérative COMAKI developper par equipe TeamInnov</footer>
 
   <!-- NE PAS MODIFIER — scripts de connexion au backend -->
   <script src="../functions.js"></script>
