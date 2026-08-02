@@ -1,0 +1,532 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+  --color-primary: #2F6F4E;
+  --color-primary-dark: #1F4B34;
+  --color-accent: #C8793A;
+  --color-accent-dark: #A8632E;
+  --color-bg: #F7F7F5;
+  --color-surface: #FFFFFF;
+  --color-border: #E4E4E1;
+  --color-text: #1F2A24;
+  --color-text-muted: #6B7770;
+
+  --color-success-bg: #EAF3EB;
+  --color-success-text: #1F7A43;
+  --color-error-bg: #FBEAE9;
+  --color-error-text: #B3261E;
+  --color-warning-bg: #FCE6D2;
+  --color-warning-text: #B5651D;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 3px rgba(20, 30, 25, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 26px;
+  margin: 0 0 4px;
+  color: var(--color-text);
+}
+
+h2 {
+  font-size: 19px;
+  margin: 0 0 4px;
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+/* ---------- Contenu principal ---------- */
+.app-main {
+  max-width: 1200px;
+  margin: 28px auto 60px;
+  padding: 0 24px;
+}
+
+.page-head {
+  margin-bottom: 20px;
+}
+
+.page-subtitle {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.section-title {
+  margin-top: 32px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ---------- Carte générique ---------- */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+.form-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 16px 0 20px;
+}
+
+/* ---------- Alertes ---------- */
+.alert {
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.alert-success {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.alert-error {
+  background: var(--color-error-bg);
+  color: var(--color-error-text);
+}
+
+.alert-warning {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+  font-weight: 600;
+}
+
+/* ---------- Formulaire ---------- */
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 220px;
+  margin-bottom: 18px;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.form-input-select {
+  appearance: none;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* ---------- Boutons ---------- */
+.btn {
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 12px 22px;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  padding: 12px 22px;
+}
+
+.btn-secondary:hover {
+  background: var(--color-bg);
+}
+
+/* ---------- Tableau des comptes ---------- */
+.table-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+.comptes-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.comptes-table th,
+.comptes-table td {
+  padding: 12px 20px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.comptes-table thead th {
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.comptes-table tbody tr {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.comptes-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.comptes-table tbody tr:hover {
+  background: var(--color-bg);
+}
+
+/* ---------- Responsive : priorité au mobile d'entrée de gamme ---------- */
+@media (max-width: 640px) {
+  .app-main {
+    padding: 0 16px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
+
+/* ==========================================================
+   NAVIGATION — reprise à l'identique de dashboard.css (Dev FS1)
+   Police "Be Vietnam Pro" scopée au .navbar uniquement, pour ne
+   pas changer la typographie du reste de la page.
+   ========================================================== */
+
+.navbar {
+    font-family: "Be Vietnam Pro", sans-serif;
+    position: relative;
+    height: 68px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #1B432E;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-text {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.45px;
+}
+
+.logo-img-container{
+    background-color: #f2f2f2;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+}
+
+.logo img {
+    height: 30px;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    color: #ffffffb3;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background-color: #2F6F4E;
+    color: #ffffff;
+}
+
+.nav-link.active {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.arrow {
+    width: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-input:checked~.dropdown-label .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    min-width: 180px;
+    padding: 8px;
+    list-style: none;
+    margin: 0;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.dropdown-input:checked~.dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 15px;
+    color: #555;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f3f3f3;
+    color: #222;
+}
+
+/* Sous-lien actif : la page courante à l'intérieur d'un dropdown */
+.dropdown-menu a.active {
+    background-color: #EAF3EB;
+    color: #1B432E;
+    font-weight: 700;
+}
+
+.login-logout-link {
+    margin-left: 2rem;
+    background-color: #2F6F4E;
+    border-radius: 999px;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.menu-toggle-input {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+    .nav-list {
+        gap: 0;
+    }
+
+    .nav-link {
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        height: 65px;
+        padding: 0 20px;
+        justify-content: space-between;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: #2F6F4E;
+        border-bottom: 1px solid #e5e5e5;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .menu-toggle-input:checked~.nav-menu {
+        max-height: 600px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .logo-text {
+        font-size: 16px;
+    }
+
+    .menu-toggle-input:checked~.hamburger span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle-input:checked~.hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle-input:checked~.hamburger span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 20px 20px;
+    }
+
+    .nav-link {
+        width: 100%;
+        min-height: 50px;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        min-width: 0;
+        padding: 0 0 0 15px;
+        border: none;
+        border-radius: 3px;
+        box-shadow: none;
+        background: #fafafa;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: visible;
+        transform: none;
+        transition: max-height 0.35s ease, opacity 0.25s ease;
+    }
+
+    .dropdown-input:checked~.dropdown-menu {
+        max-height: 300px;
+        opacity: 1;
+    }
+
+    .login-logout-link {
+        margin-left: 0;
+        margin-top: 5px;
+        background-color: #1B432E;
+        width: fit-content;
+        padding: 0 20px;
+        height: fit-content;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,758 @@
+
+/* =====================================================================
+   AgriCoop Connect — Paiements
+   ===================================================================== */
+
+/*Naviagtion globale*/
+
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*--- RESET ---*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Be Vietnam Pro", sans-serif;
+}
+
+/*---NAVBAR---*/
+.navbar {
+    position: relative;
+    height: 68px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #1B432E;
+    z-index: 1000;
+}
+
+/*--- LOGO ---*/
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-text {
+    color: #ffffff;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.45px;
+}
+
+.logo-img-container{
+    background-color: #f2f2f2;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+}
+
+.logo img {
+    height: 30px;
+}
+
+/*--- LISTE PRINCIPALE ---*/
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    list-style: none;
+}
+
+/*--- LIENS PRINCIPAUX ---*/
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    color: #ffffffb3;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+    font-weight: 500;
+    border-radius: 999px;
+}
+
+.nav-link:hover {
+    background-color: #2F6F4E;
+    color: #ffffff;
+}
+
+/*--- LIEN ACTIF ---*/
+.nav-link.active {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/*--- DROPDOWN ---*/
+.dropdown {
+    position: relative;
+}
+
+/*--- CHECKBOX DROPDOWN INVISIBLE ---*/
+.dropdown-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/*--- FLECHE ---*/
+.arrow {
+    width: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-input:checked~.dropdown-label .arrow {
+    transform: rotate(180deg);
+}
+
+/*--- SOUS-MENU DESKTOP ---*/
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    min-width: 180px;
+    padding: 8px;
+    list-style: none;
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.dropdown-input:checked~.dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/*--- LIENS DU SOUS-MENU ---*/
+.dropdown-menu a {
+    display: block;
+    padding: 12px 15px;
+    color: #555;
+    text-decoration: none;
+    border-radius: 5px;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f3f3f3;
+    color: #222;
+}
+
+/*--- LOGIN LOGOUT LINK ---*/
+.login-logout-link {
+    margin-left: 2rem;
+    background-color: #2F6F4E;
+    border-radius: 999px;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/*--- CHECKBOX MENU MOBILE ---*/
+.menu-toggle-input {
+    display: none;
+}
+
+/*--- HAMBURGER ---*/
+.hamburger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+/*-- RESPONSIVE --*/
+@media (max-width: 1024px) {
+    .nav-list {
+        gap: 0;
+    }
+
+    .nav-link {
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        height: 65px;
+        padding: 0 20px;
+        justify-content: space-between;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: #2F6F4E;
+        border-bottom: 1px solid #e5e5e5;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition:
+            max-height 0.4s ease,
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .menu-toggle-input:checked~.nav-menu {
+        max-height: 600px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .logo-text {
+        font-size: 16px;
+    }
+
+    .menu-toggle-input:checked~.hamburger span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle-input:checked~.hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle-input:checked~.hamburger span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 20px 20px;
+    }
+
+    .nav-link {
+        width: 100%;
+        min-height: 50px;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        min-width: 0;
+        padding: 0 0 0 15px;
+        border: none;
+        border-radius: 3px;
+        box-shadow: none;
+        background: #fafafa;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: visible;
+        transform: none;
+        transition:
+            max-height 0.35s ease,
+            opacity 0.25s ease;
+
+    }
+
+    .dropdown-input:checked~.dropdown-menu {
+        max-height: 300px;
+        opacity: 1;
+    }
+
+    .login-logout-link {
+        margin-left: 0;
+        margin-top: 5px;
+        background-color: #1B432E;
+        width: fit-content;
+        padding: 0 20px;
+        height: fit-content;
+    }
+
+}
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 15px;
+    }
+}
+
+/* ===== Mise en page générale ===== */
+
+/*body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  background-color: #f5f7f5;
+  color: #222;
+}*/
+
+main {
+  padding: 24px 32px;
+}
+
+
+
+/* ===== En-tête Paiements + bouton "Nouveau paiement" ===== */
+
+.entete-paiements {
+  display: block;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.entete-paiements h1 {
+  display: inline-block;
+  margin: 0;
+  font-size: 22px;
+  color: #1b4d21;
+}
+
+.btn-nouveau-paiement {
+  display: inline-block;
+  float: right;
+  background-color: #e67e22;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-nouveau-paiement:hover {
+  background-color: #d3690f;
+}
+
+/* Case à cocher invisible qui pilote l'ouverture/fermeture du modal */
+.toggle-form {
+  display: none;
+}
+
+/* ===== Modal du formulaire de paiement ===== */
+
+/* Fond assombri derrière le formulaire, caché par défaut.
+   C'est un <label> : cliquer dessus décoche la checkbox et ferme le modal. */
+.overlay-fond {
+  display: none;
+}
+
+.toggle-form:checked ~ .overlay-fond {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* Le conteneur du formulaire, caché par défaut ... */
+.conteneur-form-paiement {
+  display: none;
+}
+
+/* ... et affiché en modal centré quand la checkbox est cochée.
+   (checkbox, overlay et ce conteneur doivent être frères directs
+   dans le HTML pour que le sélecteur ~ fonctionne) */
+.toggle-form:checked ~ .conteneur-form-paiement {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  width: 90%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* ===== Formulaire de paiement ===== */
+
+#form-paiement {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.champ-form {
+  display: block;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.champ-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #1b4d21;
+}
+
+.champ-form select,
+.champ-form input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+.champ-form select:focus,
+.champ-form input:focus {
+  outline: none;
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.15);
+}
+
+#form-paiement button[type="submit"] {
+  display: block;
+  margin-top: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 20px;
+  background-color: #2e7d32;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#form-paiement button[type="submit"]:hover {
+  background-color: #256428;
+}
+
+/* ===== Messages de retour ===== */
+
+#message-erreur-paiement,
+#message-succes-paiement {
+  display: block;
+  max-width: 400px;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+#message-erreur-paiement[hidden],
+#message-succes-paiement[hidden] {
+  display: none;
+}
+
+#message-erreur-paiement {
+  background-color: #fdecea;
+  color: #b71c1c;
+  border: 1px solid #f5c6cb;
+}
+
+#message-succes-paiement {
+  background-color: #e8f5e9;
+  color: #1b5e20;
+  border: 1px solid #c8e6c9;
+}
+
+/* ===== Bloc total des paiements ===== */
+
+.bloc-total {
+  display: block;
+  background-color: #1b4d21;
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: 6px;
+  border: none;
+  margin-bottom: 20px;
+  overflow: hidden; /* contient le float du total */
+}
+
+.bloc-total-label {
+  display: inline-block;
+  font-weight: bold;
+  color: #d5e8d5;
+  font-size: 14px;
+}
+
+#total-paiements {
+  display: inline-block;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+/* ===== Titre de section h2===== */
+.titre-section {
+  margin: 24px 0 12px;
+  font-size: 16px;
+  color: #1b4d21;
+  text-align:center;
+}
+/* ===== Tableau historique des paiements ===== */
+
+.carte-tableau {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  margin-top: 24px;
+}
+
+/* Permet au tableau de défiler horizontalement sur petit écran
+   sans casser sa mise en page (au lieu de tasser les colonnes) */
+.carte-tableau-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  text-align: left;
+  padding: 12px 16px;
+  background-color: #2e7d32;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+#liste-paiements td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 14px;
+}
+
+#liste-paiements tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+#liste-paiements tr:hover {
+  background-color: #f1f8f2;
+}
+
+/* ===== Galerie photos ===== */
+
+.galerie-photos {
+  margin-top: 24px;
+  font-size: 0; /* évite l'espace blanc parasite entre inline-block */
+}
+
+.photo-carte {
+  display: inline-block;
+  position: relative;
+  width: 48%;
+  margin-right: 4%;
+  vertical-align: top;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.photo-carte:last-child {
+  margin-right: 0;
+}
+
+.photo-carte img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.photo-legende {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* =====================================================================
+   RESPONSIVE — TABLETTE (≤ 900px)
+   ===================================================================== */
+@media (max-width: 900px) {
+  main {
+    padding: 20px;
+  }
+
+  .nav-principale {
+    padding: 14px 20px;
+  }
+
+  .nav-liens a {
+    margin-right: 16px;
+  }
+
+  .btn-deconnexion {
+    float: none;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  .entete-paiements h1 {
+    font-size: 20px;
+  }
+
+  .photo-carte img {
+    height: 160px;
+  }
+}
+
+/* =====================================================================
+   RESPONSIVE — MOBILE (≤ 600px)
+   ===================================================================== */
+@media (max-width: 600px) {
+  main {
+    padding: 16px;
+  }
+
+  /* Navigation : passe en colonne, tout empilé */
+  .nav-principale {
+    padding: 14px 16px;
+    text-align: center;
+  }
+
+  .nav-logo {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .nav-liens {
+    display: block;
+  }
+
+  .nav-liens a {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 13px;
+  }
+
+  .btn-deconnexion {
+    float: none;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  /* En-tête Paiements : titre et bouton empilés */
+  .entete-paiements {
+    text-align: center;
+  }
+
+  .entete-paiements h1 {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .btn-nouveau-paiement {
+    float: none;
+    display: inline-block;
+  }
+
+  /* Modal du formulaire */
+  .toggle-form:checked ~ .conteneur-form-paiement {
+    width: 92%;
+  }
+
+  #form-paiement {
+    padding: 16px;
+  }
+
+  #message-erreur-paiement,
+  #message-succes-paiement {
+    max-width: 100%;
+  }
+
+  /* Bloc total : montant repasse sous le libellé */
+  .bloc-total {
+    text-align: center;
+  }
+
+  .bloc-total-label,
+  #total-paiements {
+    display: block;
+    float: none;
+  }
+
+  #total-paiements {
+    margin-top: 6px;
+  }
+
+  /* Tableau : défilement horizontal plutôt que colonnes tassées */
+  #liste-paiements td,
+  thead th {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  /* Galerie photos : une carte par ligne */
+  .photo-carte {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+
+  .photo-carte img {
+    height: 180px;
+  }
+}

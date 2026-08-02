@@ -1,22 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgriCoop Connect — Tableau de bord</title>
-  <link rel="stylesheet" href="dashboard.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgriCoop Connect — Tableau de bord</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
 
-  <!-- =====================================================================
-       NAVIGATION — TODO (Dev FS1)
-       Construire un menu de navigation vers les 8 pages du site.
-       Structure attendue : <nav> avec liens vers les autres modules.
-       Doit inclure un menu burger pour mobile.
-       ===================================================================== -->
+  <body>
+    <header class="navbar">
+      <a href="dashboard.html" class="logo">
+        <span class="logo-img-container">
+          <img src="../assets/images/Favicon.png" alt="" />
+        </span>
 
-  <main>
-    <!-- =====================================================================
+        <span class="logo-text">AgriCoop Connect</span>
+      </a>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-input" />
+
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav-menu">
+        <ul class="nav-list">
+          <li>
+            <a href="../dashboard/dashboard.html" class="nav-link active">
+              Dashboard
+            </a>
+          </li>
+
+          <li class="dropdown">
+            <!--Checkbox pour ouvrir le dropdown Gestion-->
+            <input type="checkbox" id="gestion-toggle" class="dropdown-input" />
+            <label for="gestion-toggle" class="nav-link dropdown-label">
+              <span>Gestion</span>
+              <img
+                src="../assets/images/dropdown-icon.png"
+                alt=""
+                class="arrow"
+              />
+            </label>
+
+            <!-- Sous-menu -->
+            <ul class="dropdown-menu">
+              <li>
+                <a href="../comptes/comptes.html"> Comptes </a>
+              </li>
+              <li>
+                <a href="../membres/membres.html"> Membres </a>
+              </li>
+            </ul>
+          </li>
+
+          <!--- ACTIVITÉS --->
+
+          <li class="dropdown">
+            <!--Checkbox pour ouvrir le dropdown Activités-->
+
+            <input
+              type="checkbox"
+              id="activite-toggle"
+              class="dropdown-input"
+            />
+
+            <label for="activite-toggle" class="nav-link dropdown-label">
+              <span>Activités</span>
+              <img
+                src="../assets/images/dropdown-icon.png"
+                alt=""
+                class="arrow"
+              />
+            </label>
+
+            <!-- Sous-menu -->
+
+            <ul class="dropdown-menu">
+              <li>
+                <a href="../ventes/ventes.html"> Ventes </a>
+              </li>
+              <li>
+                <a href="../paiements/paiements.html"> Paiements </a>
+              </li>
+              <li>
+                <a href="../livraisons/livraisons.html"> Livraisons </a>
+              </li>
+            </ul>
+          </li>
+
+          <!---STATISTIQUES--->
+
+          <li>
+            <a href="../statistiques/statistiques.html" class="nav-link">
+              Statistiques
+            </a>
+          </li>
+
+          <!--- LOGIN --->
+          <li>
+            <a href="../login/login.html" class="nav-link login-logout-link">
+              <img src="../assets/images/logout_icon.svg" alt="" />
+              <span>Déconnexion</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- =====================================================================
          CARTES INDICATEURS — TODO (Dev FS1)
          Construire 4 cartes affichant les indicateurs clés du tableau de bord.
          Structure attendue : conteneur avec 4 éléments (stock, montant dû,
@@ -25,33 +120,85 @@
 
          *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
          ===================================================================== -->
-    <div id="dashboard-cartes">
-      <div id="carte-stock"></div>
-      <div id="carte-montant-du"></div>
-      <div id="carte-membres"></div>
-      <div id="carte-livraisons"></div>
-    </div>
+      <div class="dashboard-summary">
+        <h1>Tableau de bord</h1>
+        <div id="dashboard-cartes" class="dashboard-cartes">
+          <div class="carte-stock dashboard-carte">
+            <div id="carte-stock" class="titre-carte"></div>
+            <p>Stock Total</p>
+          </div>
+          <div class="carte-montant-du dashboard-carte">
+            <div id="carte-montant-du" class="titre-carte"></div>
+            <p>Montant dû</p>
+          </div>
+          <div class="carte-membres dashboard-carte">
+            <div id="carte-membres" class="titre-carte"></div>
+            <p>Membres actifs</p>
+          </div>
+          <div class="carte-livraisons dashboard-carte">
+            <div id="carte-livraisons" class="titre-carte"></div>
+            <p>Livraisons</p>
+          </div>
+        </div>
+        <div class="carte-activite">
+          <div class="icone-activite">
+            <svg
+              height="64px"
+              width="64px"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 283.281 283.281"
+              xml:space="preserve"
+              fill="#000000"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <g>
+                  <path
+                    style="fill: #000002"
+                    d="M265.781,193.467h-2.023V60.264c0-12.406-10.093-22.5-22.5-22.5H42.022 c-12.407,0-22.5,10.094-22.5,22.5v133.203H17.5c-9.649,0-17.5,7.852-17.5,17.5v17.05c0,9.649,7.851,17.5,17.5,17.5h248.281 c9.649,0,17.5-7.851,17.5-17.5v-17.05C283.281,201.319,275.431,193.467,265.781,193.467z M34.522,60.264c0-4.136,3.364-7.5,7.5-7.5 h199.236c4.136,0,7.5,3.364,7.5,7.5v133.203H34.522V60.264z M268.281,228.017c0,1.355-1.145,2.5-2.5,2.5H17.5 c-1.355,0-2.5-1.145-2.5-2.5v-17.05c0-1.355,1.145-2.5,2.5-2.5h248.281c1.355,0,2.5,1.145,2.5,2.5V228.017z"
+                  ></path>
+                  <path
+                    style="fill: #000002"
+                    d="M231.809,78.052c-3.199-2.632-7.925-2.171-10.557,1.026l-44.763,54.404 c-0.202,0.248-0.681,0.299-0.932,0.101l-22.991-18.122c-3.261-2.57-7.327-3.701-11.444-3.181c-4.119,0.518-7.777,2.62-10.299,5.919 l-34.755,45.451l-26.952-24.749c-3.051-2.801-7.796-2.6-10.597,0.452c-2.801,3.051-2.599,7.795,0.452,10.597l27.107,24.892 c2.776,2.551,6.386,3.957,10.063,3.957c0.417,0,0.836-0.018,1.254-0.055c4.101-0.359,7.916-2.48,10.466-5.814l34.878-45.619 c0.029-0.038,0.098-0.128,0.257-0.148c0.158-0.016,0.247,0.05,0.285,0.08l22.991,18.122c6.646,5.237,16.425,4.182,21.8-2.351 l44.763-54.404C235.467,85.411,235.007,80.684,231.809,78.052z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+          </div>
 
-    <!-- =====================================================================
-         JOURS À FORTE ACTIVITÉ — TODO (Dev FS1)
-         Afficher le nombre de jours dépassant le seuil de 80 kg.
+          <div class="contenu-activite">
+            <span class="titre-activite">Jours à forte activité</span>
+            <div id="jours-actifs"></div>
+          </div>
+        </div>
+      </div>
 
-         *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
-         ===================================================================== -->
-    <div id="jours-actifs"></div>
-
-    <!-- =====================================================================
+      <!-- =====================================================================
          GRAPHIQUE SEMAINE — TODO (Dev FS1)
          Conteneur pour un graphique en barres (barres générées par main.js).
          Le dev doit styliser les barres via CSS (.barre).
 
          *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
          ===================================================================== -->
-    <div id="graphique-semaine"></div>
-  </main>
+      <div class="carte-graphique">
+        <div class="en-tete-graphique">
+          <h2>Livraisons de la semaine</h2>
+          <p>Volume de livraisons par jour</p>
+        </div>
+        <div id="graphique-semaine"></div>
+      </div>
+    </main>
 
-  <!-- NE PAS MODIFIER — scripts de connexion au backend -->
-  <script src="../functions.js"></script>
-  <script src="../main.js"></script>
-</body>
+    <!-- NE PAS MODIFIER — scripts de connexion au backend -->
+    <script src="../functions.js"></script>
+    <script src="../main.js"></script>
+  </body>
 </html>
