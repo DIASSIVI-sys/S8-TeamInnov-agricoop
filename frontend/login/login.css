@@ -165,16 +165,18 @@ main {
     background-color: #1F4B3A;
     transform: translateY(-2px);
 }
+
 #message-erreur-login {
     color: rgb(255, 255, 255);
     font-size: 14px;
     margin-top: 1rem;
     text-align: center;
-    background-color:rgba(255, 0, 0, 0.521);
+    background-color: rgba(255, 0, 0, 0.521);
     padding: 0.5rem;
-    border-radius:3px;
+    border-radius: 3px;
     box-shadow: 0px 10px 15px -3px #0000000a;
 }
+
 .demo-infos {
     gap: 8px;
     font-size: 14px;
@@ -182,7 +184,7 @@ main {
     color: #FFFFFF99;
     letter-spacing: 0px;
     margin-top: 1.5rem;
-    display:none;
+    display: none;
 }
 
 .demo-infos strong {
@@ -206,22 +208,51 @@ main {
 
 @media (max-width: 480px) {
     main {
-        padding: 3rem 2rem;
+        padding: 2.5rem 2rem;
+    }
+
+    .logo-text {
+        margin-bottom: 1rem;
     }
 
     .form-login {
         padding: 32px;
+        gap: 20px;
     }
 
     .form-description h2 {
         font-size: 18px;
     }
 
-    .form-description p {
+    .demo-infos {
+        font-size: 14px;
+    }
+
+    #message-erreur-login {
         font-size: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    main {
+        padding: 1rem 1rem;
+    }
+
+
+    .form-login {
+        padding: 24px;
+    }
+
+
+    .form-description p {
+        line-height: 1.6;
     }
 
     .demo-infos {
-        font-size: 14px;
+        font-size: 12px;
+    }
+
+    #message-erreur-login {
+        font-size: 12px;
     }
 }
