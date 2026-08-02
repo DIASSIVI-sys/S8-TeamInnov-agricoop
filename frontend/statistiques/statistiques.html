@@ -9,34 +9,172 @@
 <body>
 
   <!-- NAVIGATION — TODO (Dev FS6) -->
+   <header class="navbar">
+      <a href="dashboard.html" class="logo">
+        <span class="logo-img-container">
+          <img src="../assets/images/Favicon.png" alt="" />
+        </span>
 
-  <main>
+        <span class="logo-text">AgriCoop Connect</span>
+      </a>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-input" />
+
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav-menu">
+        <ul class="nav-list">
+          <li>
+            <a href="../dashboard/dashboard.html" class="nav-link active"> Dashboard </a>
+          </li>
+
+          <li class="dropdown">
+            <!--Checkbox pour ouvrir le dropdown Gestion-->
+            <input type="checkbox" id="gestion-toggle" class="dropdown-input" />
+            <label for="gestion-toggle" class="nav-link dropdown-label">
+              <span>Gestion</span>
+              <img
+                src="../assets/images/dropdown-icon.png"
+                alt=""
+                class="arrow"
+              />
+            </label>
+
+            <!-- Sous-menu -->
+            <ul class="dropdown-menu">
+              <li>
+                <a href="../comptes/comptes.html"> Comptes </a>
+              </li>
+              <li>
+                <a href="../membres/membres.html"> Membres </a>
+              </li>
+            </ul>
+          </li>
+
+          <!--- ACTIVITÉS --->
+
+          <li class="dropdown">
+            <!--Checkbox pour ouvrir le dropdown Activités-->
+
+            <input
+              type="checkbox"
+              id="activite-toggle"
+              class="dropdown-input"
+            />
+
+            <label for="activite-toggle" class="nav-link dropdown-label">
+              <span>Activités</span>
+              <img
+                src="../assets/images/dropdown-icon.png"
+                alt=""
+                class="arrow"
+              />
+            </label>
+
+            <!-- Sous-menu -->
+
+            <ul class="dropdown-menu">
+              <li>
+                <a href="../ventes/ventes.html"> Ventes </a>
+              </li>
+              <li>
+                <a href="../paiements/paiements.html"> Paiements </a>
+              </li>
+              <li>
+                <a href="../livraisons/livraisons.html"> Livraisons </a>
+              </li>
+            </ul>
+          </li>
+
+          <!---STATISTIQUES--->
+
+          <li>
+            <a href="../statistiques/statistiques.html" class="nav-link"> Statistiques </a>
+          </li>
+
+          <!--- LOGIN --->
+          <li>
+            <a href="../login/login.html" class="nav-link login-logout-link">
+              <img src="../assets/images/logout_icon.svg" alt="" />
+              <span>Déconnexion</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+
+
+  <main class="contenu">
     <!-- =====================================================================
          CLASSEMENT DES MEMBRES — TODO (Dev FS6)
          Le contenu (liste <li>) est injecté par main.js.
 
          *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
          ===================================================================== -->
-    <ol id="classement-membres"></ol>
+         <section class="page-title">
+            <h2>Statistiques & Rapport</h2>
+            <p>Apercu global des activités de la coopérative de COMAKI</p>
+         </section>
+         <section class="stats-grid">
+          <article class="stats-card">
+            <h3>Membres actifs</h3>
+            <p class="nombre">8</p>
+          </article>
+          <article class="stats-card">
+            <h3>Livraisons</h3>
+            <p class="nombre">25</p>
+          </article>
+          <article class="stats-card">
+            <h3>Volumes total</h3>
+            <p class="nombre">1340 kg</p>
+          </article>
+          <article class="stats-card">
+            <h3>Revenus</h3>
+            <p class="nombre">127 500 FCFA</p>
+          </article>
+         </section>
+
+         <section class="card">
+         <h2>Classement des Producteurs</h2>
+         <ol id="classement-membres"></ol>
+         </section>
+
 
     <!-- =====================================================================
          TABLEAU PAR CULTURE — TODO (Dev FS6)
 
          *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
          ===================================================================== -->
+   <section class="card">
+   <h2> Volumes par culture</h2>
     <table>
       <thead>
         <!-- TODO (Dev FS6) : en-têtes (Culture, Volume total, Valeur totale) -->
+          <tr>
+               <th>Culture</th>
+               <th>Volume total</th>
+               <th>Valeur totale</th>
+              </tr>
       </thead>
       <tbody id="tableau-cultures"></tbody>
     </table>
+</section>
 
     <!-- =====================================================================
          TOP ACHETEUR — TODO (Dev FS6)
 
          *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
          ===================================================================== -->
-    <div id="top-acheteur"></div>
+         <section class="card">
+           <h2>Meilleur acheteur</h2>
+          <div id="top-acheteur"></div>
+        </section>
+
 
     <!-- =====================================================================
          RAPPORT BAILLEUR — TODO (Dev FS6 + DM)
@@ -45,11 +183,25 @@
 
          *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
          ===================================================================== -->
-    <section id="rapport-bailleur-contenu">
-      <span id="rb-volume"></span>
+   <section class="card">
+      <h2>Rapport Bailleur</h2>
+      <p>Synthèse des performances de la coopérative destinée aux partenaires financiers.</p></section>
+    <div id="rapport-bailleur-contenu">
+      <p><strong>Volume total</strong>
+        <span id="rb-volume"></span>
+      </P>
+    <p>
+      <strong>Montant total</strong>
       <span id="rb-montant"></span>
+    </P>
+      <p>
+        <strong>Taux de paiement</strong>
       <span id="rb-taux"></span>
+    <p>
+      <strong>Membre actifs</strong>
       <span id="rb-membres"></span>
+      </p>
+
     </section>
   </main>
 

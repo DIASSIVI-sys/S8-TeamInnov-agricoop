@@ -62,7 +62,9 @@ function compterJoursActifs(livraisonsParJour, seuil) {
    Retourne   : un nouveau tableau ne contenant que les membres dont
                 .statut_cotisation est égal au statut demandé. */
 function filtrerMembresParStatut(membres, statut) {
-  // TODO : à compléter
+   return membres.filter(function (membre) {
+    return membre.statut_cotisation === statut;
+  });
 }
 
 
@@ -74,7 +76,13 @@ function filtrerMembresParStatut(membres, statut) {
                 tous les membres tels quels.
    Astuce     : "Jean Mabiala".toLowerCase().includes("jean") -> true */
 function rechercherMembreParNom(membres, texte) {
-  // TODO : à compléter
+   if (!texte || texte.trim() === "") {
+    return membres;
+  }
+  var recherche = texte.toLowerCase();
+  return membres.filter(function (membre) {
+    return membre.nom.toLowerCase().includes(recherche);
+  });
 }
 
 
@@ -90,7 +98,22 @@ function rechercherMembreParNom(membres, texte) {
               -> {valide: false, erreurs: ["Le prénom est obligatoire.",
                                             "Le contact est obligatoire."]} */
 function validerFormulaireNouveauMembre(donnees) {
-  // TODO : à compléter
+    var erreurs = [];
+
+  if (!donnees.prenom || donnees.prenom.trim() === "") {
+    erreurs.push("Le prénom est obligatoire.");
+  }
+  if (!donnees.nom || donnees.nom.trim() === "") {
+    erreurs.push("Le nom est obligatoire.");
+  }
+  if (!donnees.village || donnees.village.trim() === "") {
+    erreurs.push("Le village est obligatoire.");
+  }
+  if (!donnees.contact || donnees.contact.trim() === "") {
+    erreurs.push("Le contact est obligatoire.");
+  }
+
+  return { valide: erreurs.length === 0, erreurs: erreurs };
 }
 
 
@@ -105,6 +128,17 @@ function validerFormulaireNouveauMembre(donnees) {
    Retourne : true si tout est valide, false sinon.
    Astuce   : Number("abc") vaut NaN ; Number("40") vaut 40. */
 function validerFormulaireLivraison(donnees) {
+  if(!donnees.membre_id || donnees.membre_id.trim() === ""){
+    return false;
+  }
+  if(!donnees.culture || donnees.culture.trim() === ""){
+    return false;
+  }
+  const quantite = Number(donnees.quantite);
+  if(isNaN(quantite) || quantite <= 0){
+    return false;
+  }
+  return true;
   // TODO : à compléter
 }
 
@@ -117,6 +151,15 @@ function validerFormulaireLivraison(donnees) {
    Astuce    : au format "AAAA-MM-JJ", comparer les chaînes fonctionne
                directement (ordre alphabétique = ordre chronologique). */
 function trierLivraisonsParDate(livraisons) {
+  return livraisons.sort((a, b) => {
+    if(a.date < b.date){
+      return 1;
+    }
+    if(a.date > b.date){
+      return -1;
+    }
+    return 0;
+  });
   // TODO : à compléter
 }
 
@@ -134,6 +177,18 @@ function trierLivraisonsParDate(livraisons) {
    Retourne : true si tout est valide, false sinon. */
 function validerFormulairePaiement(donnees) {
   // TODO : à compléter
+  //membre_id ne doit pas être vide
+  if(donnees.membre_id !== "" && donnees.membre_id !== null && donnees.membre_id !== undefined){
+    // montant doit être un nombre strictement supérieur à 0
+    const montant = Number(donnees.montant);
+    if (montant > 0) {
+      // mode_paiement doit être "Espèces" ou "Mobile Money"
+      if (donnees.mode_paiement === "Espèces" || donnees.mode_paiement === "Mobile Money") {
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 
@@ -145,6 +200,11 @@ function validerFormulairePaiement(donnees) {
    Exemple   : calculerTotalPaiements([{montant:5000},{montant:3000}]) -> 8000 */
 function calculerTotalPaiements(paiements) {
   // TODO : à compléter
+   let total = 0;
+    for (let i = 0; i < paiements.length; i++) {
+      total += paiements[i].montant;
+    }
+    return total;
 }
 
 
@@ -157,7 +217,13 @@ function calculerTotalPaiements(paiements) {
      - 50 kg ou plus       -> "Disponible"
    Retourne : une chaîne de caractères. */
 function getBadgeStock(quantiteDisponible) {
-  // TODO : à compléter
+  if (quantiteDisponible === 0) {
+    return "Épuisé";
+  }
+  if (quantiteDisponible < 50) {
+    return "Stock faible";
+  }
+  return "Disponible";
 }
 
 
@@ -168,7 +234,7 @@ function getBadgeStock(quantiteDisponible) {
    Retourne  : une chaîne de caractères, le nombre suivi de " FCFA".
    Exemple   : formaterMontant(23000) -> "23000 FCFA" */
 function formaterMontant(montant) {
-  // TODO : à compléter
+  return montant + " FCFA";
 }
 
 
@@ -178,7 +244,10 @@ function formaterMontant(montant) {
    Paramètre : classement (tableau d'objets), chaque élément a .volume_total (nombre)
    Retourne  : le tableau trié par .volume_total décroissant. */
 function trierClassementParVolume(classement) {
+  
   // TODO : à compléter
+  return classement.sort((a, b) => b.volume_total - a.volume_total);
+
 }
 
 
@@ -190,6 +259,14 @@ function trierClassementParVolume(classement) {
    Astuce    : dateStr.split("-") donne ["2026", "07", "12"]. */
 function formaterDate(dateStr) {
   // TODO : à compléter
+  
+  const parties = dateStr.split("-");
+  const annee = parties[0];
+  const mois = parties[1];
+  const jour = parties[2];
+  return jour + "/" + mois + "/" + annee;
+
+
 }
 
 
