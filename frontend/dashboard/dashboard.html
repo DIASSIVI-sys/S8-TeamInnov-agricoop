@@ -1,22 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgriCoop Connect — Tableau de bord</title>
-  <link rel="stylesheet" href="dashboard.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgriCoop Connect — Tableau de bord</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="dashboard.html" class="logo">
+        <span class="logo-img-container">
+          <img src="../assets/images/Favicon.png" alt="" />
+        </span>
 
-  <!-- =====================================================================
-       NAVIGATION — TODO (Dev FS1)
-       Construire un menu de navigation vers les 8 pages du site.
-       Structure attendue : <nav> avec liens vers les autres modules.
-       Doit inclure un menu burger pour mobile.
-       ===================================================================== -->
+        <span class="logo-text">AgriCoop Connect</span>
+      </a>
 
-  <main>
-    <!-- =====================================================================
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-input" />
+
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav-menu">
+        <ul class="nav-list">
+          <li>
+            <a href="../dashboard/dashboard.html" class="nav-link active"> Dashboard </a>
+          </li>
+
+          <li class="dropdown">
+            <!--Checkbox pour ouvrir le dropdown Gestion-->
+            <input type="checkbox" id="gestion-toggle" class="dropdown-input" />
+            <label for="gestion-toggle" class="nav-link dropdown-label">
+              <span>Gestion</span>
+              <img
+                src="../assets/images/dropdown-icon.png"
+                alt=""
+                class="arrow"
+              />
+            </label>
+
+            <!-- Sous-menu -->
+            <ul class="dropdown-menu">
+              <li>
+                <a href="../comptes/comptes.html"> Comptes </a>
+              </li>
+              <li>
+                <a href="../membres/membres.html"> Membres </a>
+              </li>
+            </ul>
+          </li>
+
+          <!--- ACTIVITÉS --->
+
+          <li class="dropdown">
+            <!--Checkbox pour ouvrir le dropdown Activités-->
+
+            <input
+              type="checkbox"
+              id="activite-toggle"
+              class="dropdown-input"
+            />
+
+            <label for="activite-toggle" class="nav-link dropdown-label">
+              <span>Activités</span>
+              <img
+                src="../assets/images/dropdown-icon.png"
+                alt=""
+                class="arrow"
+              />
+            </label>
+
+            <!-- Sous-menu -->
+
+            <ul class="dropdown-menu">
+              <li>
+                <a href="../ventes/ventes.html"> Ventes </a>
+              </li>
+              <li>
+                <a href="../paiements/paiements.html"> Paiements </a>
+              </li>
+              <li>
+                <a href="../livraisons/livraisons.html"> Livraisons </a>
+              </li>
+            </ul>
+          </li>
+
+          <!---STATISTIQUES--->
+
+          <li>
+            <a href="../statistiques/statistiques.html" class="nav-link"> Statistiques </a>
+          </li>
+
+          <!--- LOGIN --->
+          <li>
+            <a href="../login/login.html" class="nav-link login-logout-link">
+              <img src="../assets/images/logout_icon.svg" alt="" />
+              <span>Déconnexion</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- =====================================================================
          CARTES INDICATEURS — TODO (Dev FS1)
          Construire 4 cartes affichant les indicateurs clés du tableau de bord.
          Structure attendue : conteneur avec 4 éléments (stock, montant dû,
@@ -25,33 +115,33 @@
 
          *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
          ===================================================================== -->
-    <div id="dashboard-cartes">
-      <div id="carte-stock"></div>
-      <div id="carte-montant-du"></div>
-      <div id="carte-membres"></div>
-      <div id="carte-livraisons"></div>
-    </div>
+      <div id="dashboard-cartes">
+        <div id="carte-stock"></div>
+        <div id="carte-montant-du"></div>
+        <div id="carte-membres"></div>
+        <div id="carte-livraisons"></div>
+      </div>
 
-    <!-- =====================================================================
+      <!-- =====================================================================
          JOURS À FORTE ACTIVITÉ — TODO (Dev FS1)
          Afficher le nombre de jours dépassant le seuil de 80 kg.
 
          *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
          ===================================================================== -->
-    <div id="jours-actifs"></div>
+      <div id="jours-actifs"></div>
 
-    <!-- =====================================================================
+      <!-- =====================================================================
          GRAPHIQUE SEMAINE — TODO (Dev FS1)
          Conteneur pour un graphique en barres (barres générées par main.js).
          Le dev doit styliser les barres via CSS (.barre).
 
          *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
          ===================================================================== -->
-    <div id="graphique-semaine"></div>
-  </main>
+      <div id="graphique-semaine"></div>
+    </main>
 
-  <!-- NE PAS MODIFIER — scripts de connexion au backend -->
-  <script src="../functions.js"></script>
-  <script src="../main.js"></script>
-</body>
+    <!-- NE PAS MODIFIER — scripts de connexion au backend -->
+    <script src="../functions.js"></script>
+    <script src="../main.js"></script>
+  </body>
 </html>
