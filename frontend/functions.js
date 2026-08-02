@@ -136,19 +136,19 @@ function validerFormulaireNouveauMembre(donnees) {
    Retourne : true si tout est valide, false sinon.
    Astuce   : Number("abc") vaut NaN ; Number("40") vaut 40. */
 function validerFormulaireLivraison(donnees) {
-  if(!donnees.membre_id || donnees.membre_id.trim() === ""){
+  if (donnees.membre_id === undefined || donnees.membre_id === null || donnees.membre_id === "") {
     return false;
   }
-  if(!donnees.culture || donnees.culture.trim() === ""){
+  if (!donnees.culture || donnees.culture.trim() === "") {
     return false;
   }
   const quantite = Number(donnees.quantite);
-  if(isNaN(quantite) || quantite <= 0){
+  if (isNaN(quantite) || quantite <= 0) {
     return false;
   }
   return true;
-  // TODO : à compléter
 }
+
 
 
 /* [Dev FS3 — Livraisons — niveau S8 : tableau .sort]
