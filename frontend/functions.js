@@ -32,7 +32,14 @@
    Retourne : true si tout est valide, false sinon.
    Astuce   : "  ".trim() donne une chaîne vide "". */
 function validerFormulaireLogin(donnees) {
-  // TODO : à compléter
+  if (
+    donnees.nom_utilisateur?.trim().length > 0 &&
+    donnees.mot_de_passe?.length > 0
+  ) {
+    return true;
+  }
+
+  return false;
 }
 
 
