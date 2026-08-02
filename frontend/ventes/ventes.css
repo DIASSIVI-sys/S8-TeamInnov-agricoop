@@ -1,0 +1,202 @@
+:root {
+  --color-primary: #2F6F4E;
+  --color-primary-dark: #1F4B34;
+  --color-accent: #C8793A;
+  --color-accent-dark: #A8632E;
+  --color-bg: #F7F7F5;
+  --color-surface: #FFFFFF;
+  --color-border: #E4E4E1;
+  --color-text: #1F2A24;
+  --color-text-muted: #6B7770;
+
+  --color-badge-bg: #DFF3E3;
+  --color-badge-text: #1F7A43;
+  --color-badge-alerte-bg: #FCE6D2;
+  --color-badge-alerte-text: #B5651D;
+  --color-badge-epuise-bg: #FBEAE9;
+  --color-badge-epuise-text: #B3261E;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 3px rgba(20, 30, 25, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 26px;
+  margin: 0 0 4px;
+  color: var(--color-text);
+}
+
+h2 {
+  font-size: 19px;
+  margin: 0 0 4px;
+}
+
+h3 {
+  font-size: 16px;
+  margin: 0 0 6px;
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+/* ---------- Contenu principal ---------- */
+.app-main {
+  max-width: 1200px;
+  margin: 28px auto 60px;
+  padding: 0 24px;
+}
+
+.page-head {
+  margin-bottom: 20px;
+}
+
+.page-subtitle {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.section-title {
+  margin-top: 32px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ---------- Carte générique ---------- */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+/* ---------- Cartes de stock ----------*/
+.cartes-stock-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.cartes-stock-grid .card {
+  padding: 20px;
+}
+
+.cartes-stock-grid .card p {
+  margin: 0 0 10px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.cartes-stock-grid .badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: var(--color-badge-bg);
+  color: var(--color-badge-text);
+  margin-bottom: 12px;
+}
+
+.barre-stock-fond {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.barre-stock-remplissage {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 999px;
+  transition: width 0.2s ease;
+}
+
+/* Carte épuisée : accent visuel rouge sur badge + barre */
+.cartes-stock-grid .card[data-pourcentage="0"] .barre-stock-remplissage,
+.cartes-stock-grid .card[data-pourcentage="0"] .badge {
+  background: var(--color-badge-epuise-bg);
+  color: var(--color-badge-epuise-text);
+}
+
+/* ---------- Tableau des ventes ---------- */
+.table-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+.ventes-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.ventes-table th,
+.ventes-table td {
+  padding: 12px 20px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.ventes-table thead th {
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ventes-table tbody tr {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ventes-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.ventes-table tbody tr:hover {
+  background: var(--color-bg);
+}
+
+/* ---------- Responsive : priorité au mobile d'entrée de gamme ---------- */
+@media (max-width: 900px) {
+  .cartes-stock-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .app-main {
+    padding: 0 16px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .cartes-stock-grid {
+    grid-template-columns: 1fr;
+  }
+}
