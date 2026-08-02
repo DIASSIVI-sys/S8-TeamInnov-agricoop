@@ -55,7 +55,9 @@ function compterJoursActifs(livraisonsParJour, seuil) {
    Retourne   : un nouveau tableau ne contenant que les membres dont
                 .statut_cotisation est égal au statut demandé. */
 function filtrerMembresParStatut(membres, statut) {
-  // TODO : à compléter
+   return membres.filter(function (membre) {
+    return membre.statut_cotisation === statut;
+  });
 }
 
 
@@ -67,7 +69,13 @@ function filtrerMembresParStatut(membres, statut) {
                 tous les membres tels quels.
    Astuce     : "Jean Mabiala".toLowerCase().includes("jean") -> true */
 function rechercherMembreParNom(membres, texte) {
-  // TODO : à compléter
+   if (!texte || texte.trim() === "") {
+    return membres;
+  }
+  var recherche = texte.toLowerCase();
+  return membres.filter(function (membre) {
+    return membre.nom.toLowerCase().includes(recherche);
+  });
 }
 
 
@@ -83,7 +91,22 @@ function rechercherMembreParNom(membres, texte) {
               -> {valide: false, erreurs: ["Le prénom est obligatoire.",
                                             "Le contact est obligatoire."]} */
 function validerFormulaireNouveauMembre(donnees) {
-  // TODO : à compléter
+    var erreurs = [];
+
+  if (!donnees.prenom || donnees.prenom.trim() === "") {
+    erreurs.push("Le prénom est obligatoire.");
+  }
+  if (!donnees.nom || donnees.nom.trim() === "") {
+    erreurs.push("Le nom est obligatoire.");
+  }
+  if (!donnees.village || donnees.village.trim() === "") {
+    erreurs.push("Le village est obligatoire.");
+  }
+  if (!donnees.contact || donnees.contact.trim() === "") {
+    erreurs.push("Le contact est obligatoire.");
+  }
+
+  return { valide: erreurs.length === 0, erreurs: erreurs };
 }
 
 
@@ -170,7 +193,13 @@ function calculerTotalPaiements(paiements) {
      - 50 kg ou plus       -> "Disponible"
    Retourne : une chaîne de caractères. */
 function getBadgeStock(quantiteDisponible) {
-  // TODO : à compléter
+  if (quantiteDisponible === 0) {
+    return "Épuisé";
+  }
+  if (quantiteDisponible < 50) {
+    return "Stock faible";
+  }
+  return "Disponible";
 }
 
 
@@ -181,7 +210,7 @@ function getBadgeStock(quantiteDisponible) {
    Retourne  : une chaîne de caractères, le nombre suivi de " FCFA".
    Exemple   : formaterMontant(23000) -> "23000 FCFA" */
 function formaterMontant(montant) {
-  // TODO : à compléter
+  return montant + " FCFA";
 }
 
 
