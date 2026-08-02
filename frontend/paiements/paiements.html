@@ -8,7 +8,105 @@
 </head>
 <body>
 
-  <!-- NAVIGATION — TODO (Dev FS4) -->
+   <header class="navbar">
+      <a href="dashboard.html" class="logo">
+        <span class="logo-img-container">
+          <img src="../assets/images/Favicon.png" alt="" />
+        </span>
+
+        <span class="logo-text">AgriCoop Connect</span>
+      </a>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle-input" />
+
+      <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav-menu">
+        <ul class="nav-list">
+          <li>
+            <a href="dashboard.html" class="nav-link active"> Dashboard </a>
+          </li>
+
+          <li class="dropdown">
+            <!--Checkbox pour ouvrir le dropdown Gestion-->
+            <input type="checkbox" id="gestion-toggle" class="dropdown-input" />
+            <label for="gestion-toggle" class="nav-link dropdown-label">
+              <span>Gestion</span>
+              <img
+                src="../assets/images/dropdown-icon.png"
+                alt=""
+                class="arrow"
+              />
+            </label>
+
+            <!-- Sous-menu -->
+            <ul class="dropdown-menu">
+              <li>
+                <a href="comptes.html"> Comptes </a>
+              </li>
+              <li>
+                <a href="membres.html"> Membres </a>
+              </li>
+            </ul>
+          </li>
+
+          <!--- ACTIVITÉS --->
+
+          <li class="dropdown">
+            <!--Checkbox pour ouvrir le dropdown Activités-->
+
+            <input
+              type="checkbox"
+              id="activite-toggle"
+              class="dropdown-input"
+            />
+
+            <label for="activite-toggle" class="nav-link dropdown-label">
+              <span>Activités</span>
+              <img
+                src="../assets/images/dropdown-icon.png"
+                alt=""
+                class="arrow"
+              />
+            </label>
+
+            <!-- Sous-menu -->
+
+            <ul class="dropdown-menu">
+              <li>
+                <a href="ventes.html"> Ventes </a>
+              </li>
+              <li>
+                <a href="paiement.html"> Paiements </a>
+              </li>
+              <li>
+                <a href="livraisons.html"> Livraisons </a>
+              </li>
+            </ul>
+          </li>
+          <!---STATISTIQUES--->
+
+          <li>
+            <a href="statistiques.html" class="nav-link"> Statistiques </a>
+          </li>
+
+          <!--- LOGIN --->
+          <li>
+            <a href="login.html" class="nav-link login-logout-link">
+              <img src="../assets/images/logout_icon.svg" alt="" />
+              <span>Déconnexion</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+  <!-- NAVIGATION — TODO (Dev FS4) -->  
+  <!-- NAVIGATION — TODO (Dev FS4) 
    <nav class="nav-principale">
   <div class="nav-logo">🌿 AgriCoop Connect</div>
   <div class="nav-liens">
@@ -19,7 +117,7 @@
     <a href="../stock/stock.html">Stock</a>
   </div>
   <button class="btn-deconnexion">⏻ Déconnexion</button>
-  </nav>
+  </nav>-->
 
   <main>
     <div class="entete-paiements">
@@ -74,6 +172,7 @@
     </div>
 
     <!--<div id="total-paiements"></div>-->
+    <h2 class="titre-section">Historique des paiements</h2>
     <div class="carte-tableau">
        <div class="carte-tableau-scroll">
     <table>
@@ -93,12 +192,12 @@
 
     <div class="galerie-photos">
   <div class="photo-carte">
-    <img src="../images/agriculteurs.jpg" alt="Agriculteurs locaux dans un champ">
+    <img src="../images/Terre.jpg" alt="Agriculteurs locaux dans un champ">
     <span class="photo-legende">Soutien aux agriculteurs locaux</span>
   </div>
 
   <div class="photo-carte">
-    <img src="../images/transparence.jpg" alt="Transactions financières transparentes">
+    <img src="../images/Transparence.jpg" alt="Transactions financières transparentes">
     <span class="photo-legende">Transparence financière</span>
   </div>
 </div>
