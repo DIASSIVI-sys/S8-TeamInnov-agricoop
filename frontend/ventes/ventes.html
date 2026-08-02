@@ -8,8 +8,69 @@
 </head>
 <body>
 
-  <!-- NAVIGATION — TODO (Dev FS5)
-       Pas d'id imposé par main.js ici : structure libre. -->
+  <!-- ==========================================================
+       NAVIGATION — reprise à l'identique de dashboard.html (Dev FS1)
+       ========================================================== -->
+  <header class="navbar">
+    <a href="../dashboard/dashboard.html" class="logo">
+      <span class="logo-img-container">
+        <img src="../assets/images/Favicon.png" alt="" />
+      </span>
+      <span class="logo-text">AgriCoop Connect</span>
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle-input" />
+
+    <label for="menu-toggle" class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <nav class="nav-menu">
+      <ul class="nav-list">
+        <li>
+          <a href="../dashboard/dashboard.html" class="nav-link">Dashboard</a>
+        </li>
+
+        <li class="dropdown">
+          <input type="checkbox" id="gestion-toggle" class="dropdown-input" />
+          <label for="gestion-toggle" class="nav-link dropdown-label">
+            <span>Gestion</span>
+            <img src="../assets/images/dropdown-icon.png" alt="" class="arrow" />
+          </label>
+          <ul class="dropdown-menu">
+            <li><a href="../comptes/comptes.html">Comptes</a></li>
+            <li><a href="../membres/membres.html">Membres</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <input type="checkbox" id="activite-toggle" class="dropdown-input" />
+          <label for="activite-toggle" class="nav-link dropdown-label active">
+            <span>Activités</span>
+            <img src="../assets/images/dropdown-icon.png" alt="" class="arrow" />
+          </label>
+          <ul class="dropdown-menu">
+            <li><a href="../ventes/ventes.html" class="active">Ventes</a></li>
+            <li><a href="../paiements/paiements.html">Paiements</a></li>
+            <li><a href="../livraisons/livraisons.html">Livraisons</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="../statistiques/statistiques.html" class="nav-link">Statistiques</a>
+        </li>
+
+        <li>
+          <a href="../login/login.html" class="nav-link login-logout-link">
+            <img src="../assets/images/logout_icon.svg" alt="" />
+            <span>Déconnexion</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
   <main class="app-main">
 
