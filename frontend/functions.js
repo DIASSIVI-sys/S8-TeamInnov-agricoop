@@ -193,6 +193,8 @@ function formaterMontant(montant) {
 function trierClassementParVolume(classement) {
   
   // TODO : à compléter
+  return classement.sort((a, b) => b.volume_total - a.volume_total);
+
 }
 
 
@@ -204,6 +206,14 @@ function trierClassementParVolume(classement) {
    Astuce    : dateStr.split("-") donne ["2026", "07", "12"]. */
 function formaterDate(dateStr) {
   // TODO : à compléter
+  
+  const parties = dateStr.split("-");
+  const annee = parties[0];
+  const mois = parties[1];
+  const jour = parties[2];
+  return jour + "/" + mois + "/" + annee;
+
+
 }
 
 
