@@ -53,10 +53,6 @@ h3 {
   margin: 0 0 6px;
 }
 
-.hidden {
-  display: none !important;
-}
-
 .text-muted {
   color: var(--color-text-muted);
 }
@@ -68,20 +64,6 @@ h3 {
   font-weight: 600;
   cursor: pointer;
   font-size: 15px;
-}
-
-.btn-accent {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--color-accent);
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: var(--radius-sm);
-}
-
-.btn-accent:hover {
-  background: var(--color-accent-dark);
 }
 
 .btn-primary {
@@ -189,17 +171,10 @@ h3 {
   align-items: center;
 }
 
-.input-icon {
-  position: absolute;
-  left: 14px;
-  color: var(--color-text-muted);
-  pointer-events: none;
-}
-
 .form-input {
   width: 100%;
   min-height: 46px;
-  padding: 10px 14px 10px 40px;
+  padding: 10px 14px;
   font-size: 15px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
@@ -209,7 +184,6 @@ h3 {
 
 .form-input-select {
   appearance: none;
-  background-image: none;
 }
 
 .form-input:focus {
@@ -243,11 +217,6 @@ h3 {
   padding: 0 14px;
 }
 
-.search-field svg {
-  color: var(--color-text-muted);
-  flex-shrink: 0;
-}
-
 .search-field input {
   flex: 1;
   border: none;
@@ -271,7 +240,16 @@ h3 {
   min-width: 180px;
 }
 
-/* ---------- Liste des membres ----------*/
+/* ---------- Liste des membres ----------
+   Structure réelle générée par main.js (afficherMembres) :
+   <article class="membre-ligne">
+     <strong>Nom</strong>
+     <span class="village">…</span>
+     <span class="contact">…</span>
+     <span class="badge ok|alerte">Statut</span>
+     <span>Solde formaté</span>   <!-- dernier enfant, sans classe -->
+   </article>
+   ---------------------------------------- */
 .membres-grid {
   display: flex;
   flex-direction: column;
@@ -323,7 +301,7 @@ h3 {
   color: var(--color-badge-attente-text);
 }
 
-.membre-ligne>span:last-child {
+.membre-ligne > span:last-child {
   margin-left: auto;
   font-size: 16px;
   font-weight: 700;
@@ -347,18 +325,6 @@ h3 {
   margin-bottom: 16px;
 }
 
-.form-icon {
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-sm);
-  background: var(--color-badge-attente-bg);
-  color: var(--color-accent-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* ---------- Responsive : priorité au mobile d'entrée de gamme ---------- */
 @media (max-width: 640px) {
   .app-main {
@@ -370,10 +336,6 @@ h3 {
     align-items: stretch;
   }
 
-  .btn-accent {
-    justify-content: center;
-  }
-
   h1 {
     font-size: 22px;
   }
@@ -383,7 +345,7 @@ h3 {
     align-items: flex-start;
   }
 
-  .membre-ligne>span:last-child {
+  .membre-ligne > span:last-child {
     margin-left: 0;
   }
 }

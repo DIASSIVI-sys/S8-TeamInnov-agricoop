@@ -23,9 +23,6 @@
         <h1>Annuaire des Membres</h1>
         <p class="page-subtitle" id="sous-titre-membres">Gérez les profils et suivez les soldes de vos membres actifs.</p>
       </div>
-      <button class="btn btn-accent" id="btn-ouvrir-formulaire" type="button">
-        Ajouter un membre
-      </button>
     </section>
 
     <!-- =====================================================================
@@ -51,7 +48,7 @@
          Contenu injecté par main.js dans #liste-membres (fonction afficherMembres).
 
          Structure RÉELLE générée par main.js (confirmée dans le code) : -->
-       
+
          <!-- Si aucun membre : main.js écrit directement "Aucun membre trouvé."
          dans #liste-membres (pas de zone séparée à gérer).
 
@@ -59,14 +56,16 @@
          ===================================================================== -->
     <div id="liste-membres" class="membres-grid" aria-live="polite"></div>
 
-       <!-- =====================================================================
+    <!-- =====================================================================
          NOUVEAU MEMBRE — TODO (Dev FS2)
          Formulaire de création (FRD section 4.1). Les 4 champs sont obligatoires.
          Village = menu déroulant fermé, rempli par main.js.
+         Toujours visible en bas de la page Membres, comme demandé dans le README
+         (pas de bouton pour l'afficher/le masquer).
 
          *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
          ===================================================================== -->
-    <section class="add-member-section hidden" id="section-nouveau-membre">
+    <section class="add-member-section" id="section-nouveau-membre">
       <div class="add-member-form card">
         <div class="add-member-form-head">
           <div>
@@ -118,7 +117,8 @@
             <button type="submit" class="btn btn-primary">
               Enregistrer le membre
             </button>
-            <button type="button" class="btn btn-secondary" id="btn-annuler-membre">Annuler</button>
+            <!-- type="reset" : réinitialise le formulaire nativement, sans JS -->
+            <button type="reset" class="btn btn-secondary">Annuler</button>
           </div>
         </form>
       </div>
@@ -126,17 +126,8 @@
 
   </main>
 
-  <!-- ==========================================================
-       Djena, Gédéon, Clarine, ceci est un petit script d'interface, purement cosmétique :
-       - bascule l'affichage de la section "Ajouter un membre"
-       - met à jour le compteur de l'aperçu et le sous-titre
-       Ne remplace ni ne modifie functions.js / main.js.
-       ========================================================== -->
-  
-
   <!-- NE PAS MODIFIER — scripts de connexion au backend -->
   <script src="../functions.js"></script>
   <script src="../main.js"></script>
-  <script src="/frontend/ajouter_membre.js"></script>
 </body>
 </html>
