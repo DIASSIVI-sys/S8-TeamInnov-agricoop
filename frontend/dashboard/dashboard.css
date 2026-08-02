@@ -9,6 +9,7 @@
 
 body {
     font-family: "Be Vietnam Pro", sans-serif;
+    background-color: #f2f2f2;
 }
 
 /*---NAVBAR---*/
@@ -40,7 +41,7 @@ body {
     letter-spacing: -0.45px;
 }
 
-.logo-img-container{
+.logo-img-container {
     background-color: #f2f2f2;
     padding: 3px;
     display: flex;
@@ -304,8 +305,315 @@ body {
     }
 
 }
+
 @media (max-width: 480px) {
     .logo-text {
         font-size: 15px;
     }
+}
+
+
+main {
+    padding-bottom: 4rem;
+}
+
+/*----- DASHBOARD -----*/
+
+.dashboard-summary {
+    background-color: #2F6F4E;
+    padding: 32px 48px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.dashboard-summary h1 {
+    font-size: 32px;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.dashboard-cartes {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.dashboard-carte {
+    background-color: #447d60;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid #FFFFFF33;
+    width: 23%;
+}
+
+.dashboard-carte .titre-carte {
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.dashboard-carte p {
+    color: #ffffff9a;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.carte-activite {
+    width: min(90%, 430px);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(27, 67, 46, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.carte-activite:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(27, 67, 46, 0.12);
+}
+
+.icone-activite {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    background: #e8f1ec;
+    border-radius: 12px;
+    font-size: 24px;
+    padding: .5rem;
+}
+
+.contenu-activite {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.titre-activite {
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Résultat généré par JavaScript */
+#jours-actifs {
+    color: #1B432E;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/*----- GRAPHIQUE -----*/
+
+.carte-graphique {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(27, 67, 46, 0.08);
+    margin: 0 auto;
+    margin-top: -3rem;
+}
+
+.en-tete-graphique {
+    margin-bottom: 24px;
+}
+
+.en-tete-graphique h2 {
+    margin: 0;
+    color: #1F2937;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.en-tete-graphique p {
+    margin: 6px 0 0;
+    color: #1F2937;
+    font-size: 14px;
+    text-align: center;
+}
+
+#graphique-semaine {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    width: fit-content;
+    height: 250px;
+    padding: 20px 10px 0;
+    box-sizing: border-box;
+}
+
+/* Les barres */
+#graphique-semaine .barre {
+    flex: 1;
+    min-width: 30px;
+    position: relative;
+    border-radius: 6px 6px 2px 2px;
+    background: linear-gradient(to top, #1B432E, #4F8A68);
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
+}
+
+/* Effet visuel au survol */
+#graphique-semaine .barre:hover {
+    transform: scaleY(1.05);
+    filter: brightness(1.1);
+}
+
+/* Les autres barres deviennent légèrement transparentes */
+#graphique-semaine:has(.barre:hover) .barre:not(:hover) {
+    opacity: 0.5;
+}
+
+/* Info-bulle */
+#graphique-semaine .barre::after {
+    content: attr(title);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 10px;
+    color: #ffffff;
+    background: #1B432E;
+    font-size: 12px;
+    white-space: nowrap;
+    border-radius: 6px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+/* Affichage de l'info-bulle */
+#graphique-semaine .barre:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 1024px) {
+    .dashboard-carte {
+        width: 48%;
+    }
+
+    .carte-graphique {
+        width: 90%;
+    }
+
+    #graphique-semaine {
+        height: 200px;
+    }
+
+    #graphique-semaine .barre {
+        min-width: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-summary {
+        padding: 24px;
+    }
+
+    .dashboard-summary h1 {
+        font-size: 24px;
+        margin-bottom: 1.5rem;
+    }
+
+    .dashboard-cartes {
+        flex-wrap: wrap;
+    }
+
+    .dashboard-carte {
+        width: 48%;
+        padding: 16px;
+    }
+
+    .dashboard-carte .titre-carte {
+        font-size: 20px;
+    }
+
+    .carte-graphique {
+        width: 95%;
+        margin-top: 1rem;
+    }
+
+    #graphique-semaine {
+        height: 180px;
+    }
+
+    #graphique-semaine .barre {
+        min-width: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard-carte {
+        width: 100%;
+    }
+
+    #jours-actifs {
+        font-size: 16px;
+    }
+
+    #graphique-semaine {
+        height: 160px;
+        padding: 10px;
+        gap: 5px;
+    }
+
+    #graphique-semaine .barre {
+        min-width: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-carte {
+        width: 100%;
+    }
+
+    .dashboard-summary {
+        padding: 16px;
+    }
+
+    .dashboard-summary h1 {
+        font-size: 20px;
+        margin-bottom: 1rem;
+    }
+
+    .carte-graphique {
+        width: 95%;
+        min-width: 0;
+        padding: 12px;
+    }
+
+    #graphique-semaine {
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+
+    #graphique-semaine .barre {
+        flex: 0 0 8px;
+    }
+
 }
