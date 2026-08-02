@@ -120,25 +120,6 @@
             <h2>Statistiques & Rapport</h2>
             <p>Apercu global des activités de la coopérative de COMAKI</p>
          </section>
-         <section class="stats-grid">
-          <article class="stats-card">
-            <h3>Membres actifs</h3>
-            <p class="nombre">8</p>
-          </article>
-          <article class="stats-card">
-            <h3>Livraisons</h3>
-            <p class="nombre">25</p>
-          </article>
-          <article class="stats-card">
-            <h3>Volumes total</h3>
-            <p class="nombre">1340 kg</p>
-          </article>
-          <article class="stats-card">
-            <h3>Revenus</h3>
-            <p class="nombre">127 500 FCFA</p>
-          </article>
-         </section>
-
          <section class="card">
          <h2>Classement des Producteurs</h2>
          <ol id="classement-membres"></ol>
@@ -187,20 +168,24 @@
       <h2>Rapport Bailleur</h2>
       <p>Synthèse des performances de la coopérative destinée aux partenaires financiers.</p></section>
     <div id="rapport-bailleur-contenu">
-      <p><strong>Volume total</strong>
-        <span id="rb-volume"></span>
-      </P>
-    <p>
-      <strong>Montant total</strong>
-      <span id="rb-montant"></span>
-    </P>
-      <p>
-        <strong>Taux de paiement</strong>
-      <span id="rb-taux"></span>
-    <p>
-      <strong>Membre actifs</strong>
-      <span id="rb-membres"></span>
-      </p>
+       <section class="stats-grid">
+          <article class="stats-card">
+            <h3>Membres actifs</h3>
+            <p id="rb-membres" class="nombre"></p>
+          </article>
+          <article class="stats-card">
+            <h3>Taux de paiements</h3>
+            <p id="rb-taux" class="nombre"></p>
+          </article>
+          <article class="stats-card">
+            <h3>Volumes total</h3>
+            <p id="rb-volume" class="nombre"></p>
+          </article>
+          <article class="stats-card">
+            <h3>Montant total</h3>
+            <p id="rb-montant" class="nombre"></p>
+          </article>
+         </section>
 
     </section>
   </main>
