@@ -193,7 +193,24 @@
           <h2>Livraisons de la semaine</h2>
           <p>Volume de livraisons par jour</p>
         </div>
-        <div id="graphique-semaine"></div>
+
+        <input type="checkbox" id="afficher-historique" />
+
+        <div class="zone-graphique">
+          <div class="echelle-graphique">
+            <span>150 kg</span>
+            <span>100 kg</span>
+            <span>50 kg</span>
+            <span>0 kg</span>
+          </div>
+
+          <div id="graphique-semaine"></div>
+        </div>
+
+        <label for="afficher-historique" class="bouton-historique">
+          <span class="texte-voir">Voir l'historique</span>
+          <span class="texte-reduire">Réduire l'historique</span>
+        </label>
       </div>
     </main>
 
