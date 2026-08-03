@@ -392,6 +392,45 @@ main {
 .conteneur-form-paiement {
   display: none;
 }
+.entete-paiements {
+  display: block;
+  position: relative; /* sert de repère pour le bouton */
+  margin-bottom: 20px;
+  padding-right: 180px; /* réserve la place du bouton pour que le texte ne passe pas dessous */
+  min-height: 44px;
+}
+
+.entete-texte {
+  display: block;
+}
+
+.entete-paiements h1 {
+  margin: 0;
+  font-size: 22px;
+  color: #1b4d21;
+}
+
+.entete-paiements p {
+  margin: 0;
+  padding: 6px 0 0;
+  font-size: 14px;
+  color: #4a4a4a;
+}
+
+.btn-nouveau-paiement {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #e67e22;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
 
 /* ... et affiché en modal centré quand la checkbox est cochée.
    (checkbox, overlay et ce conteneur doivent être frères directs
@@ -693,20 +732,59 @@ thead th {
     margin-top: 10px;
   }
 
-  /* En-tête Paiements : titre et bouton empilés */
-  .entete-paiements {
-    text-align: center;
-  }
+  /* ===== En-tête Paiements + bouton "Nouveau paiement" ===== */
 
-  .entete-paiements h1 {
-    display: block;
-    margin-bottom: 12px;
+.entete-paiements {
+  display: block;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.entete-paiements h1 {
+  margin: 0;
+  font-size: 22px;
+  color: #1b4d21;
+}
+
+.entete-paiements p {
+  margin: 0;
+  padding: 6px 0 0;
+  font-size: 14px;
+  color: #4a4a4a;
+}
+
+.btn-nouveau-paiement {
+  display: block;
+  width: fit-content;
+  margin: 12px auto 0;
+  background-color: #e67e22;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-nouveau-paiement:hover {
+  background-color: #d3690f;
+}
+
+/* À partir de 601px : le bouton remonte à droite du titre */
+@media (min-width: 601px) {
+  .entete-paiements {
+    position: relative;
+    text-align: left;
+    padding-right: 180px;
   }
 
   .btn-nouveau-paiement {
-    float: none;
-    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
   }
+}
 
   /* Modal du formulaire */
   .toggle-form:checked ~ .conteneur-form-paiement {
