@@ -370,9 +370,10 @@ main {
 }
 
 .carte-activite {
-    width: min(90%, 430px);
+    width: min(100%, 400px);
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 16px;
     padding: 20px 24px;
     background: #ffffff;
@@ -380,6 +381,7 @@ main {
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(27, 67, 46, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 0 auto;
 }
 
 .carte-activite:hover {
@@ -412,10 +414,12 @@ main {
     font-weight: 500;
 }
 
+
+
 /* Résultat généré par JavaScript */
 #jours-actifs {
     color: #1B432E;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
 }
 
@@ -423,10 +427,9 @@ main {
 
 .carte-graphique {
     width: fit-content;
+    max-width: 95%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding: 24px;
     box-sizing: border-box;
     background: #ffffff;
@@ -436,6 +439,8 @@ main {
     margin: 0 auto;
     margin-top: -3rem;
 }
+
+/*----- EN-TÊTE DU GRAPHIQUE -----*/
 
 .en-tete-graphique {
     margin-bottom: 24px;
@@ -452,20 +457,51 @@ main {
     margin: 6px 0 0;
     color: #1F2937;
     font-size: 14px;
-    text-align: center;
 }
 
-#graphique-semaine {
+
+.zone-graphique {
     display: flex;
+    align-items: stretch;
+    gap: 12px;
+    height: 250px;
+}
+
+/*----- ÉCHELLE DU GRAPHIQUE -----*/
+
+.echelle-graphique {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 45px;
+    padding: 20px 0 20px;
+    color: #6B7280;
+    font-size: 11px;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.echelle-graphique span {
+    line-height: 1;
+}
+
+/*----- CONTENEUR DES BARRES -----*/
+
+#graphique-semaine {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
     align-items: flex-end;
     gap: 10px;
     width: fit-content;
-    height: 250px;
-    padding: 20px 10px 0;
+    min-width: 0;
+    height: 100%;
+    padding: 20px 10px 20px;
     box-sizing: border-box;
+    background: repeating-linear-gradient(to bottom, transparent 0, transparent 49px, #E5E7EB 49px, #E5E7EB 50px);
 }
 
-/* Les barres */
+
 #graphique-semaine .barre {
     flex: 1;
     min-width: 30px;
@@ -476,18 +512,20 @@ main {
     transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
 }
 
-/* Effet visuel au survol */
+
 #graphique-semaine .barre:hover {
     transform: scaleY(1.05);
     filter: brightness(1.1);
 }
 
-/* Les autres barres deviennent légèrement transparentes */
+/*----- LES AUTRES BARRES DEVIENNENT TRANSPARENTES -----*/
+
 #graphique-semaine:has(.barre:hover) .barre:not(:hover) {
     opacity: 0.5;
 }
 
-/* Info-bulle */
+/*----- INFO-BULLE -----*/
+
 #graphique-semaine .barre::after {
     content: attr(title);
     position: absolute;
@@ -506,29 +544,79 @@ main {
     transition: opacity 0.2s ease;
 }
 
-/* Affichage de l'info-bulle */
+/*----- AFFICHAGE DE L'INFO-BULLE -----*/
+
 #graphique-semaine .barre:hover::after {
     opacity: 1;
     visibility: visible;
 }
+
+/*----- SYSTÈME D'HISTORIQUE -----*/
+
+#afficher-historique {
+    display: none;
+}
+
+/*----- MASQUER LES BARRES SUPPLÉMENTAIRES -----*/
+
+#graphique-semaine .barre:nth-last-child(n + 9) {
+    display: none;
+}
+
+/*----- AFFICHER TOUTES LES BARRES -----*/
+
+#afficher-historique:checked ~ .zone-graphique #graphique-semaine .barre {
+    display: block;
+}
+
+/*----- BOUTON HISTORIQUE -----*/
+
+.bouton-historique {
+    align-self: center;
+    margin-top: 20px;
+    padding: 9px 16px;
+    color: #ffffff;
+    background: #1B432E;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.bouton-historique:hover {
+    background: #2D6849;
+    transform: translateY(-1px);
+}
+
+/*----- TEXTE DU BOUTON -----*/
+
+.texte-reduire {
+    display: none;
+}
+
+#afficher-historique:checked ~ .bouton-historique .texte-voir {
+    display: none;
+}
+
+#afficher-historique:checked ~ .bouton-historique .texte-reduire {
+    display: inline;
+}
+
+/*----- TABLETTE -----*/
 
 @media (max-width: 1024px) {
     .dashboard-carte {
         width: 48%;
     }
 
-    .carte-graphique {
-        width: 90%;
-    }
-
-    #graphique-semaine {
-        height: 200px;
-    }
 
     #graphique-semaine .barre {
         min-width: 20px;
     }
 }
+
+/*----- TABLETTE / PETIT ÉCRAN -----*/
 
 @media (max-width: 768px) {
     .dashboard-summary {
@@ -554,38 +642,49 @@ main {
     }
 
     .carte-graphique {
-        width: 95%;
         margin-top: 1rem;
     }
 
-    #graphique-semaine {
+    .zone-graphique {
         height: 180px;
     }
 
     #graphique-semaine .barre {
         min-width: 15px;
     }
+
+    #graphique-semaine .barre::after{
+        font-size: 10px;
+    }
 }
+
+/*----- MOBILE -----*/
 
 @media (max-width: 600px) {
     .dashboard-carte {
         width: 100%;
     }
 
+    .carte-activite{
+        padding: 16px;
+    }
+
     #jours-actifs {
-        font-size: 16px;
+        font-size: 14px;
+        width: 180px;
     }
 
     #graphique-semaine {
-        height: 160px;
         padding: 10px;
         gap: 5px;
     }
 
     #graphique-semaine .barre {
-        min-width: 8px;
+        min-width: 10px;
     }
 }
+
+/*----- TRÈS PETIT ÉCRAN -----*/
 
 @media (max-width: 480px) {
     .dashboard-carte {
@@ -604,16 +703,30 @@ main {
     .carte-graphique {
         width: 95%;
         min-width: 0;
-        padding: 12px;
+        padding: 16px;
+    }
+
+    .en-tete-graphique h2 {
+        font-size: 18px;
+    }
+
+    .en-tete-graphique p {
+        font-size: 13px;
+    }
+
+    .zone-graphique {
+        min-width: 0;
     }
 
     #graphique-semaine {
+        max-width: calc(100vw - 100px);
         overflow-x: auto;
+        overflow-y: hidden;
         justify-content: flex-start;
     }
 
     #graphique-semaine .barre {
-        flex: 0 0 8px;
+        flex: 0 0 30px;
+        min-width: 30px;
     }
-
 }
