@@ -144,8 +144,21 @@ C'est la source unique de vérité : ne modifiez pas ce fichier, sinon vos résu
 | RM-6 | Un utilisateur ne peut accéder qu'aux actions autorisées pour son rôle (module Authentification). |
 | RM-7 | Un doublon quasi certain de membre propose la fiche existante plutôt que d'en créer une nouvelle. |
 
+Auteurs
+
+## Équipe & répartition des rôles
+
+| Personne | Page(s) HTML/CSS | Fonctions JS | Règles métier | Rôle |
+|---|---|---|---|---|
+| KEDI Gédéon | `login/` + `dashboard/` (FS1) | `validerFormulaireLogin`, `compterJoursActifs` | RM-6 | Dev FS1 |
+| MBEMBA Paul Divin Aymérol | `membres/` + `comptes/` (FS2) ; `ventes/` (FS5) | `filtrerMembresParStatut`, `rechercherMembreParNom`, `validerFormulaireNouveauMembre`, `getBadgeStock`, `formaterMontant` | RM-7, RM-6 | Dev FS2/FS5 — **Lead** |
+| MBOUMALOKO KALLA Clarine | `livraisons/` (FS3) ; `statistiques/` (partagée) | `validerFormulaireLivraison`, `trierLivraisonsParDate` | RM-1, RM-2 | Dev FS3 |
+| NSANGOU Djenna | `paiements/` (FS4) | `validerFormulairePaiement`, `calculerTotalPaiements`, `trierClassementParVolume`, `formaterDate` | RM-3 | Dev FS4 — **Repo Admin** |
+| LOCKO Jonathan | — (non actif) | — | — | — |
+
 ## Livrable & soutenance (Demo Day)
 
 Votre équipe pitche son produit comme une vraie startup : démo live (connexion avec un compte de test, navigation sur les 8 pages, enregistrement d'une vraie livraison et d'un vrai paiement, création d'un nouveau membre), avec explication des règles métier respectées.
 
 Bonne construction.
+
