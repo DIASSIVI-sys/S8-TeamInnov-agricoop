@@ -485,3 +485,12 @@ h3 {
         font-size: 15px;
     }
 }
+
+.footer {
+    margin-top: 50px;
+    background: #1B432e;
+    color: rgba(255, 255, 255, 0.808);
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
