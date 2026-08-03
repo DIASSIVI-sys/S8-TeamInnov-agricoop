@@ -370,9 +370,10 @@ main {
 }
 
 .carte-activite {
-    width: min(90%, 430px);
+    width: min(100%, 400px);
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 16px;
     padding: 20px 24px;
     background: #ffffff;
@@ -380,6 +381,7 @@ main {
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(27, 67, 46, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 0 auto;
 }
 
 .carte-activite:hover {
@@ -412,10 +414,12 @@ main {
     font-weight: 500;
 }
 
+
+
 /* Résultat généré par JavaScript */
 #jours-actifs {
     color: #1B432E;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
 }
 
@@ -648,6 +652,10 @@ main {
     #graphique-semaine .barre {
         min-width: 15px;
     }
+
+    #graphique-semaine .barre::after{
+        font-size: 10px;
+    }
 }
 
 /*----- MOBILE -----*/
@@ -657,12 +665,13 @@ main {
         width: 100%;
     }
 
-    #jours-actifs {
-        font-size: 16px;
+    .carte-activite{
+        padding: 16px;
     }
 
-    .zone-graphique {
-        height: 160px;
+    #jours-actifs {
+        font-size: 14px;
+        width: 180px;
     }
 
     #graphique-semaine {
@@ -694,7 +703,7 @@ main {
     .carte-graphique {
         width: 95%;
         min-width: 0;
-        padding: 12px;
+        padding: 16px;
     }
 
     .en-tete-graphique h2 {
@@ -706,7 +715,6 @@ main {
     }
 
     .zone-graphique {
-        height: 160px;
         min-width: 0;
     }
 
